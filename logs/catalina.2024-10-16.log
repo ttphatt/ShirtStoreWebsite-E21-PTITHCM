@@ -1,0 +1,243 @@
+16-Oct-2024 11:29:53.601 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.86
+16-Oct-2024 11:29:53.604 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 08:15:12 UTC
+16-Oct-2024 11:29:53.604 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.86.0
+16-Oct-2024 11:29:53.604 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+16-Oct-2024 11:29:53.604 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+16-Oct-2024 11:29:53.604 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+16-Oct-2024 11:29:53.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+16-Oct-2024 11:29:53.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.1+12-LTS-29
+16-Oct-2024 11:29:53.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+16-Oct-2024 11:29:53.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite
+16-Oct-2024 11:29:53.606 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\Admin\Downloads\ApacheTomcat\apache-tomcat-9.0.86
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\Admin\Downloads\ApacheTomcat\apache-tomcat-9.0.86
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\temp
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\logging.properties
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+16-Oct-2024 11:29:53.613 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\lib\idea_rt.jar=50444:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin
+16-Oct-2024 11:29:53.614 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+16-Oct-2024 11:29:53.614 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+16-Oct-2024 11:29:53.614 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+16-Oct-2024 11:29:53.623 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Java\jdk-21\bin;C:\Users\Admin\Downloads\LTW\apache-maven-3.9.6\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\Admin\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Admin\AppData\Local\Programs\Python\Python312\;C:\Users\Admin\AppData\Local\Programs\Python\Launcher\;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\.dotnet\tools;C:\Program Files\Azure Data Studio\bin;C:\Users\Admin\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin;;.]
+16-Oct-2024 11:29:53.926 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 11:29:53.943 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [522] milliseconds
+16-Oct-2024 11:29:54.006 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+16-Oct-2024 11:29:54.007 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.86]
+16-Oct-2024 11:29:54.014 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\Catalina\localhost\ShoeStoreWebsite.xml]
+16-Oct-2024 11:29:54.215 WARNING [main] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [5.0]. Default version will be used.
+16-Oct-2024 11:29:55.649 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Oct-2024 11:29:55.870 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: ShoeStoreWebsite]
+16-Oct-2024 11:29:56.005 INFO [main] org.hibernate.Version.logVersion HHH000412: Hibernate ORM core version 5.6.15.Final
+16-Oct-2024 11:29:56.353 INFO [main] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16-Oct-2024 11:29:56.694 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/shoestoredb?useSSL=false
+16-Oct-2024 11:29:56.694 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001001: Connection properties: {password=****, user=root}
+16-Oct-2024 11:29:56.694 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001003: Autocommit mode: false
+16-Oct-2024 11:29:56.737 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
+16-Oct-2024 11:29:56.849 INFO [main] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+16-Oct-2024 11:29:56.928 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001007: JDBC isolation level: <unknown>
+16-Oct-2024 11:29:56.962 INFO [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@3ce9ce0e [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@859533e6 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 7de3rpb614y8csf1ss9tht|755009f2, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@23663f24 [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 7de3rpb614y8csf1ss9tht|5186c801, jdbcUrl -> jdbc:mysql://localhost:3306/shoestoredb?useSSL=false, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 7de3rpb614y8csf1ss9tht|15a0f9, numHelperThreads -> 3 ]
+16-Oct-2024 11:29:57.339 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16-Oct-2024 11:29:58.623 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16-Oct-2024 11:29:58.862 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\Catalina\localhost\ShoeStoreWebsite.xml] has finished in [4,847] ms
+16-Oct-2024 11:29:58.864 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 11:29:58.880 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4936] milliseconds
+16-Oct-2024 13:24:20.763 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 13:24:20.772 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+16-Oct-2024 13:24:20.807 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [ShoeStoreWebsite] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+16-Oct-2024 13:24:20.808 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1847)
+ java.base/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+ java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+ java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:93)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+16-Oct-2024 13:24:20.808 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb614y8csf1ss9tht|15a0f9]-AdminTaskTimer] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ java.base/java.util.TimerThread.mainLoop(Timer.java:563)
+ java.base/java.util.TimerThread.run(Timer.java:516)
+16-Oct-2024 13:24:20.808 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb614y8csf1ss9tht|15a0f9]-HelperThread-#0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 13:24:20.808 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb614y8csf1ss9tht|15a0f9]-HelperThread-#1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 13:24:20.809 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb614y8csf1ss9tht|15a0f9]-HelperThread-#2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 13:24:20.836 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 13:24:20.867 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 16:44:18.246 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.86
+16-Oct-2024 16:44:18.249 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 08:15:12 UTC
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.86.0
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.1+12-LTS-29
+16-Oct-2024 16:44:18.250 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+16-Oct-2024 16:44:18.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite
+16-Oct-2024 16:44:18.251 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\Admin\Downloads\ApacheTomcat\apache-tomcat-9.0.86
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\Admin\Downloads\ApacheTomcat\apache-tomcat-9.0.86
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\temp
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\logging.properties
+16-Oct-2024 16:44:18.257 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+16-Oct-2024 16:44:18.258 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\lib\idea_rt.jar=55636:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin
+16-Oct-2024 16:44:18.258 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+16-Oct-2024 16:44:18.258 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+16-Oct-2024 16:44:18.258 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+16-Oct-2024 16:44:18.265 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Java\jdk-21\bin;C:\Users\Admin\Downloads\LTW\apache-maven-3.9.6\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\Admin\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Admin\AppData\Local\Programs\Python\Python312\;C:\Users\Admin\AppData\Local\Programs\Python\Launcher\;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\.dotnet\tools;C:\Program Files\Azure Data Studio\bin;C:\Users\Admin\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin;;.]
+16-Oct-2024 16:44:18.559 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 16:44:18.575 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [515] milliseconds
+16-Oct-2024 16:44:18.632 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+16-Oct-2024 16:44:18.633 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.86]
+16-Oct-2024 16:44:18.646 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\Catalina\localhost\ShoeStoreWebsite.xml]
+16-Oct-2024 16:44:18.858 WARNING [main] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [5.0]. Default version will be used.
+16-Oct-2024 16:44:20.271 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Oct-2024 16:44:20.467 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: ShoeStoreWebsite]
+16-Oct-2024 16:44:20.603 INFO [main] org.hibernate.Version.logVersion HHH000412: Hibernate ORM core version 5.6.15.Final
+16-Oct-2024 16:44:20.945 INFO [main] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16-Oct-2024 16:44:21.285 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/shoestoredb?useSSL=false
+16-Oct-2024 16:44:21.285 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001001: Connection properties: {password=****, user=root}
+16-Oct-2024 16:44:21.285 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001003: Autocommit mode: false
+16-Oct-2024 16:44:21.329 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
+16-Oct-2024 16:44:21.438 INFO [main] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+16-Oct-2024 16:44:21.515 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001007: JDBC isolation level: <unknown>
+16-Oct-2024 16:44:21.548 INFO [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@a19e13c1 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@e7b8ac6e [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 7de3rpb6159gosu19y5l0g|350be5ec, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@e98308eb [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 7de3rpb6159gosu19y5l0g|430f0c63, jdbcUrl -> jdbc:mysql://localhost:3306/shoestoredb?useSSL=false, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 7de3rpb6159gosu19y5l0g|8b1bfdf, numHelperThreads -> 3 ]
+16-Oct-2024 16:44:21.901 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16-Oct-2024 16:44:23.221 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16-Oct-2024 16:44:23.464 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\Catalina\localhost\ShoeStoreWebsite.xml] has finished in [4,818] ms
+16-Oct-2024 16:44:23.466 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 16:44:23.480 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4903] milliseconds
+16-Oct-2024 18:09:21.227 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:09:21.231 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+16-Oct-2024 18:09:21.239 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [ShoeStoreWebsite] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+16-Oct-2024 18:09:21.239 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1847)
+ java.base/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+ java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+ java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:93)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+16-Oct-2024 18:09:21.239 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb6159gosu19y5l0g|8b1bfdf]-AdminTaskTimer] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ java.base/java.util.TimerThread.mainLoop(Timer.java:563)
+ java.base/java.util.TimerThread.run(Timer.java:516)
+16-Oct-2024 18:09:21.239 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb6159gosu19y5l0g|8b1bfdf]-HelperThread-#0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 18:09:21.239 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb6159gosu19y5l0g|8b1bfdf]-HelperThread-#1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 18:09:21.239 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb6159gosu19y5l0g|8b1bfdf]-HelperThread-#2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 18:09:21.246 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:09:21.257 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:09:26.364 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.86
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 14 2024 08:15:12 UTC
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.86.0
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk-21
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.1+12-LTS-29
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+16-Oct-2024 18:09:26.367 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite
+16-Oct-2024 18:09:26.368 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\Admin\Downloads\ApacheTomcat\apache-tomcat-9.0.86
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\Admin\Downloads\ApacheTomcat\apache-tomcat-9.0.86
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\temp
+16-Oct-2024 18:09:26.373 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\logging.properties
+16-Oct-2024 18:09:26.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+16-Oct-2024 18:09:26.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\lib\idea_rt.jar=56297:C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin
+16-Oct-2024 18:09:26.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+16-Oct-2024 18:09:26.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+16-Oct-2024 18:09:26.374 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+16-Oct-2024 18:09:26.381 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Program Files\Java\jdk-21\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Java\jdk-21\bin;C:\Users\Admin\Downloads\LTW\apache-maven-3.9.6\bin;C:\Program Files\Java\jdk-21\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\Admin\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\Admin\AppData\Local\Programs\Python\Python312\;C:\Users\Admin\AppData\Local\Programs\Python\Launcher\;C:\Users\Admin\AppData\Local\Microsoft\WindowsApps;C:\Users\Admin\.dotnet\tools;C:\Program Files\Azure Data Studio\bin;C:\Users\Admin\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.3\bin;;.]
+16-Oct-2024 18:09:26.631 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:09:26.648 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [410] milliseconds
+16-Oct-2024 18:09:26.698 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+16-Oct-2024 18:09:26.698 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.86]
+16-Oct-2024 18:09:26.710 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\Catalina\localhost\ShoeStoreWebsite.xml]
+16-Oct-2024 18:09:26.905 WARNING [main] org.apache.tomcat.util.descriptor.web.WebXml.setVersion Unknown version string [5.0]. Default version will be used.
+16-Oct-2024 18:09:28.252 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Oct-2024 18:09:28.404 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: ShoeStoreWebsite]
+16-Oct-2024 18:09:28.520 INFO [main] org.hibernate.Version.logVersion HHH000412: Hibernate ORM core version 5.6.15.Final
+16-Oct-2024 18:09:28.854 INFO [main] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+16-Oct-2024 18:09:29.169 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH010002: C3P0 using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/shoestoredb?useSSL=false
+16-Oct-2024 18:09:29.170 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001001: Connection properties: {password=****, user=root}
+16-Oct-2024 18:09:29.170 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001003: Autocommit mode: false
+16-Oct-2024 18:09:29.210 INFO [MLog-Init-Reporter] com.mchange.v2.log.MLog. MLog clients using java 1.4+ standard logging.
+16-Oct-2024 18:09:29.310 INFO [main] com.mchange.v2.c3p0.C3P0Registry. Initializing c3p0-0.9.5.5 [built 11-December-2019 22:18:33 -0800; debug? true; trace: 10]
+16-Oct-2024 18:09:29.388 INFO [main] org.hibernate.c3p0.internal.C3P0ConnectionProvider.configure HHH10001007: JDBC isolation level: <unknown>
+16-Oct-2024 18:09:29.422 INFO [main] com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource. Initializing c3p0 pool... com.mchange.v2.c3p0.PoolBackedDataSource@548a02c8 [ connectionPoolDataSource -> com.mchange.v2.c3p0.WrapperConnectionPoolDataSource@88f290b7 [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, debugUnreturnedConnectionStackTraces -> false, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, identityToken -> 7de3rpb615ci62civhvs2|85f5f55, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, nestedDataSource -> com.mchange.v2.c3p0.DriverManagerDataSource@fb69e39b [ description -> null, driverClass -> null, factoryClassLocation -> null, forceUseNamedDriverClass -> false, identityToken -> 7de3rpb615ci62civhvs2|5f877009, jdbcUrl -> jdbc:mysql://localhost:3306/shoestoredb?useSSL=false, properties -> {password=******, user=******} ], preferredTestQuery -> null, privilegeSpawnedThreads -> false, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false; userOverrides: {} ], dataSourceName -> null, extensions -> {}, factoryClassLocation -> null, identityToken -> 7de3rpb615ci62civhvs2|3bbdf835, numHelperThreads -> 3 ]
+16-Oct-2024 18:09:29.756 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+16-Oct-2024 18:09:30.979 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+16-Oct-2024 18:09:31.204 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\Admin\Downloads\Folder\ShoeStoreWebsite\conf\Catalina\localhost\ShoeStoreWebsite.xml] has finished in [4,493] ms
+16-Oct-2024 18:09:31.206 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:09:31.219 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [4569] milliseconds
+16-Oct-2024 18:54:26.047 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:54:26.050 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+16-Oct-2024 18:54:26.071 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [ShoeStoreWebsite] registered the JDBC driver [com.mysql.cj.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+16-Oct-2024 18:54:26.071 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
+ java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1847)
+ java.base/java.lang.ref.ReferenceQueue.await(ReferenceQueue.java:71)
+ java.base/java.lang.ref.ReferenceQueue.remove0(ReferenceQueue.java:143)
+ java.base/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:218)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:93)
+ java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+ java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+ java.base/java.lang.Thread.run(Thread.java:1583)
+16-Oct-2024 18:54:26.072 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb615ci62civhvs2|3bbdf835]-AdminTaskTimer] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ java.base/java.util.TimerThread.mainLoop(Timer.java:563)
+ java.base/java.util.TimerThread.run(Timer.java:516)
+16-Oct-2024 18:54:26.072 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb615ci62civhvs2|3bbdf835]-HelperThread-#0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 18:54:26.072 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb615ci62civhvs2|3bbdf835]-HelperThread-#1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 18:54:26.072 WARNING [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ShoeStoreWebsite] appears to have started a thread named [C3P0PooledConnectionPoolManager[identityToken->7de3rpb615ci62civhvs2|3bbdf835]-HelperThread-#2] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base/java.lang.Object.wait0(Native Method)
+ java.base/java.lang.Object.wait(Object.java:366)
+ com.mchange.v2.async.ThreadPoolAsynchronousRunner$PoolThread.run(ThreadPoolAsynchronousRunner.java:683)
+16-Oct-2024 18:54:26.076 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-9999"]
+16-Oct-2024 18:54:26.086 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-9999"]

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.SchemaAutoIncrementColumns" optimistic-lock="none" table="schema_auto_increment_columns">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.SchemaAutoIncrementColumnsId" name="id">
+            <key-property name="tableSchema" type="string">
+                <column length="64" name="table_schema"/>
+            </key-property>
+            <key-property name="tableName" type="string">
+                <column length="64" name="table_name"/>
+            </key-property>
+            <key-property name="columnName" type="string">
+                <column length="64" name="column_name"/>
+            </key-property>
+            <key-property name="dataType" type="string">
+                <column name="data_type"/>
+            </key-property>
+            <key-property name="columnType" type="string">
+                <column length="16777215" name="column_type"/>
+            </key-property>
+            <key-property name="isSigned" type="int">
+                <column name="is_signed"/>
+            </key-property>
+            <key-property name="isUnsigned" type="int">
+                <column name="is_unsigned"/>
+            </key-property>
+            <key-property name="maxValue" type="java.lang.Long">
+                <column name="max_value"/>
+            </key-property>
+            <key-property name="autoIncrement" type="java.lang.Long">
+                <column name="auto_increment"/>
+            </key-property>
+            <key-property name="autoIncrementRatio" type="big_decimal">
+                <column name="auto_increment_ratio" precision="25" scale="4"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

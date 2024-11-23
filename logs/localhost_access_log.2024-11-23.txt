@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:01 +0700] "GET /ShirtStoreWebsite HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:03 +0700] "GET /ShirtStoreWebsite/ HTTP/1.1" 200 8710
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:03 +0700] "GET /js/jquery-3.7.1.min.js HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:03 +0700] "GET /js/jquery.validate.min.js HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:04 +0700] "GET /favicon.ico HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:05 +0700] "GET /ShirtStoreWebsite/login HTTP/1.1" 200 9072
+0:0:0:0:0:0:0:1 - - [23/Nov/2024:09:53:15 +0700] "GET /ShirtStoreWebsite/login?code=AQCj5WwFPumxGcStrRqHF8tk0wSCfFiSHxq6Q6Uy7EKuTb9VDIh2X5dz6OBkDmBC9zXn-11Kf7KW3BNANcc2hAIleQRucoxIpIldljBj-jJCFzBgkHxBCrfjp5vDClu91Qmsob6hSAhvZfpnoENujfsKXmOA1GgClhWa1hlLm50o3TL-a8Lt3GrwxH_Qi2wxujyi3bm1tgvakob_Ssj9daxvBDwDZBz7DMzRMhYoeRZI07bv5l0svRJhSPuvWscGH_J711VZheGdBeXJ9sYe72cEl8H_stBI28w0S3c90DMeS7ivV9T19Fta1dbpzvsXlroYtWzf44qCh0hlgigdn6n9RfAr4vm9ZlYIC2X8_USbdU97ghycA9i6IJOd99WsAQ9gshgBAU8rDJx3xrAyLfmR&state=provider%3Dfacebook HTTP/1.1" 200 7435

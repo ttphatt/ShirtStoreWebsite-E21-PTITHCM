@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.InnodbLockWaits" optimistic-lock="none" table="innodb_lock_waits">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.InnodbLockWaitsId" name="id">
+            <key-property name="waitStarted" type="timestamp">
+                <column length="19" name="wait_started"/>
+            </key-property>
+            <key-property name="waitAge" type="time">
+                <column length="8" name="wait_age"/>
+            </key-property>
+            <key-property name="waitAgeSecs" type="java.lang.Long">
+                <column name="wait_age_secs"/>
+            </key-property>
+            <key-property name="lockedTable" type="string">
+                <column length="16777215" name="locked_table"/>
+            </key-property>
+            <key-property name="lockedTableSchema" type="string">
+                <column length="64" name="locked_table_schema"/>
+            </key-property>
+            <key-property name="lockedTableName" type="string">
+                <column length="64" name="locked_table_name"/>
+            </key-property>
+            <key-property name="lockedTablePartition" type="string">
+                <column length="64" name="locked_table_partition"/>
+            </key-property>
+            <key-property name="lockedTableSubpartition" type="string">
+                <column length="64" name="locked_table_subpartition"/>
+            </key-property>
+            <key-property name="lockedIndex" type="string">
+                <column length="64" name="locked_index"/>
+            </key-property>
+            <key-property name="lockedType" type="string">
+                <column length="32" name="locked_type"/>
+            </key-property>
+            <key-property name="waitingTrxId" type="long">
+                <column name="waiting_trx_id"/>
+            </key-property>
+            <key-property name="waitingTrxStarted" type="timestamp">
+                <column length="19" name="waiting_trx_started"/>
+            </key-property>
+            <key-property name="waitingTrxAge" type="time">
+                <column length="8" name="waiting_trx_age"/>
+            </key-property>
+            <key-property name="waitingTrxRowsLocked" type="long">
+                <column name="waiting_trx_rows_locked"/>
+            </key-property>
+            <key-property name="waitingTrxRowsModified" type="long">
+                <column name="waiting_trx_rows_modified"/>
+            </key-property>
+            <key-property name="waitingPid" type="long">
+                <column name="waiting_pid"/>
+            </key-property>
+            <key-property name="waitingQuery" type="string">
+                <column name="waiting_query"/>
+            </key-property>
+            <key-property name="waitingLockId" type="string">
+                <column length="128" name="waiting_lock_id"/>
+            </key-property>
+            <key-property name="waitingLockMode" type="string">
+                <column length="32" name="waiting_lock_mode"/>
+            </key-property>
+            <key-property name="blockingTrxId" type="long">
+                <column name="blocking_trx_id"/>
+            </key-property>
+            <key-property name="blockingPid" type="long">
+                <column name="blocking_pid"/>
+            </key-property>
+            <key-property name="blockingQuery" type="string">
+                <column name="blocking_query"/>
+            </key-property>
+            <key-property name="blockingLockId" type="string">
+                <column length="128" name="blocking_lock_id"/>
+            </key-property>
+            <key-property name="blockingLockMode" type="string">
+                <column length="32" name="blocking_lock_mode"/>
+            </key-property>
+            <key-property name="blockingTrxStarted" type="timestamp">
+                <column length="19" name="blocking_trx_started"/>
+            </key-property>
+            <key-property name="blockingTrxAge" type="time">
+                <column length="8" name="blocking_trx_age"/>
+            </key-property>
+            <key-property name="blockingTrxRowsLocked" type="long">
+                <column name="blocking_trx_rows_locked"/>
+            </key-property>
+            <key-property name="blockingTrxRowsModified" type="long">
+                <column name="blocking_trx_rows_modified"/>
+            </key-property>
+            <key-property name="sqlKillBlockingQuery" type="string">
+                <column length="33" name="sql_kill_blocking_query"/>
+            </key-property>
+            <key-property name="sqlKillBlockingConnection" type="string">
+                <column length="27" name="sql_kill_blocking_connection"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

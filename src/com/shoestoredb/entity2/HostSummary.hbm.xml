@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.HostSummary" optimistic-lock="none" table="host_summary">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.HostSummaryId" name="id">
+            <key-property name="host" type="string">
+                <column name="host"/>
+            </key-property>
+            <key-property name="statements" type="big_integer">
+                <column name="statements" precision="64" scale="0"/>
+            </key-property>
+            <key-property name="statementLatency" type="string">
+                <column length="11" name="statement_latency"/>
+            </key-property>
+            <key-property name="statementAvgLatency" type="string">
+                <column length="11" name="statement_avg_latency"/>
+            </key-property>
+            <key-property name="tableScans" type="big_integer">
+                <column name="table_scans" precision="65" scale="0"/>
+            </key-property>
+            <key-property name="fileIos" type="big_integer">
+                <column name="file_ios" precision="64" scale="0"/>
+            </key-property>
+            <key-property name="fileIoLatency" type="string">
+                <column length="11" name="file_io_latency"/>
+            </key-property>
+            <key-property name="currentConnections" type="big_integer">
+                <column name="current_connections" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="totalConnections" type="big_integer">
+                <column name="total_connections" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="uniqueUsers" type="long">
+                <column name="unique_users"/>
+            </key-property>
+            <key-property name="currentMemory" type="string">
+                <column length="11" name="current_memory"/>
+            </key-property>
+            <key-property name="totalMemoryAllocated" type="string">
+                <column length="11" name="total_memory_allocated"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

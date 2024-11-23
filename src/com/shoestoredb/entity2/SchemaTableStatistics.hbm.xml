@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.SchemaTableStatistics" optimistic-lock="none" table="schema_table_statistics">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.SchemaTableStatisticsId" name="id">
+            <key-property name="tableSchema" type="string">
+                <column length="64" name="table_schema"/>
+            </key-property>
+            <key-property name="tableName" type="string">
+                <column length="64" name="table_name"/>
+            </key-property>
+            <key-property name="totalLatency" type="string">
+                <column length="11" name="total_latency"/>
+            </key-property>
+            <key-property name="rowsFetched" type="long">
+                <column name="rows_fetched"/>
+            </key-property>
+            <key-property name="fetchLatency" type="string">
+                <column length="11" name="fetch_latency"/>
+            </key-property>
+            <key-property name="rowsInserted" type="long">
+                <column name="rows_inserted"/>
+            </key-property>
+            <key-property name="insertLatency" type="string">
+                <column length="11" name="insert_latency"/>
+            </key-property>
+            <key-property name="rowsUpdated" type="long">
+                <column name="rows_updated"/>
+            </key-property>
+            <key-property name="updateLatency" type="string">
+                <column length="11" name="update_latency"/>
+            </key-property>
+            <key-property name="rowsDeleted" type="long">
+                <column name="rows_deleted"/>
+            </key-property>
+            <key-property name="deleteLatency" type="string">
+                <column length="11" name="delete_latency"/>
+            </key-property>
+            <key-property name="ioReadRequests" type="big_integer">
+                <column name="io_read_requests" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioRead" type="string">
+                <column length="11" name="io_read"/>
+            </key-property>
+            <key-property name="ioReadLatency" type="string">
+                <column length="11" name="io_read_latency"/>
+            </key-property>
+            <key-property name="ioWriteRequests" type="big_integer">
+                <column name="io_write_requests" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioWrite" type="string">
+                <column length="11" name="io_write"/>
+            </key-property>
+            <key-property name="ioWriteLatency" type="string">
+                <column length="11" name="io_write_latency"/>
+            </key-property>
+            <key-property name="ioMiscRequests" type="big_integer">
+                <column name="io_misc_requests" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioMiscLatency" type="string">
+                <column length="11" name="io_misc_latency"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

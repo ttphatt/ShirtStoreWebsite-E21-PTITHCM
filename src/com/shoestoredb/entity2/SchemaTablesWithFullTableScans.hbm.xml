@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.SchemaTablesWithFullTableScans" optimistic-lock="none" table="schema_tables_with_full_table_scans">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.SchemaTablesWithFullTableScansId" name="id">
+            <key-property name="objectSchema" type="string">
+                <column length="64" name="object_schema"/>
+            </key-property>
+            <key-property name="objectName" type="string">
+                <column length="64" name="object_name"/>
+            </key-property>
+            <key-property name="rowsFullScanned" type="long">
+                <column name="rows_full_scanned"/>
+            </key-property>
+            <key-property name="latency" type="string">
+                <column length="11" name="latency"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

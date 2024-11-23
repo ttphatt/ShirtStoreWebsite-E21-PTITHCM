@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.Metrics" optimistic-lock="none" table="metrics">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.MetricsId" name="id">
+            <key-property name="variableName" type="string">
+                <column length="193" name="Variable_name"/>
+            </key-property>
+            <key-property name="variableValue" type="string">
+                <column length="65535" name="Variable_value"/>
+            </key-property>
+            <key-property name="type" type="string">
+                <column length="210" name="Type"/>
+            </key-property>
+            <key-property name="enabled" type="string">
+                <column length="7" name="Enabled"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

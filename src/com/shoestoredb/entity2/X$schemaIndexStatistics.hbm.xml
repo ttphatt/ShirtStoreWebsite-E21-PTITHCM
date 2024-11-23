@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$schemaIndexStatistics" optimistic-lock="none" table="x$schema_index_statistics">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$schemaIndexStatisticsId" name="id">
+            <key-property name="tableSchema" type="string">
+                <column length="64" name="table_schema"/>
+            </key-property>
+            <key-property name="tableName" type="string">
+                <column length="64" name="table_name"/>
+            </key-property>
+            <key-property name="indexName" type="string">
+                <column length="64" name="index_name"/>
+            </key-property>
+            <key-property name="rowsSelected" type="long">
+                <column name="rows_selected"/>
+            </key-property>
+            <key-property name="selectLatency" type="long">
+                <column name="select_latency"/>
+            </key-property>
+            <key-property name="rowsInserted" type="long">
+                <column name="rows_inserted"/>
+            </key-property>
+            <key-property name="insertLatency" type="long">
+                <column name="insert_latency"/>
+            </key-property>
+            <key-property name="rowsUpdated" type="long">
+                <column name="rows_updated"/>
+            </key-property>
+            <key-property name="updateLatency" type="long">
+                <column name="update_latency"/>
+            </key-property>
+            <key-property name="rowsDeleted" type="long">
+                <column name="rows_deleted"/>
+            </key-property>
+            <key-property name="deleteLatency" type="long">
+                <column name="delete_latency"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

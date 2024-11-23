@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.UserSummaryByFileIo" optimistic-lock="none" table="user_summary_by_file_io">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.UserSummaryByFileIoId" name="id">
+            <key-property name="user" type="string">
+                <column length="32" name="user"/>
+            </key-property>
+            <key-property name="ios" type="big_integer">
+                <column name="ios" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioLatency" type="string">
+                <column length="11" name="io_latency"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

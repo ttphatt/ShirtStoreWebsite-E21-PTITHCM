@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="shoestoredb" name="com.shoestoredb.entity2.Type" optimistic-lock="none" table="type">
+        <id name="typeId" type="java.lang.Integer">
+            <column name="type_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="typeName" type="string">
+            <column length="50" name="type_name" not-null="true" unique="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="shoes" table="shoe">
+            <key>
+                <column name="type_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.shoestoredb.entity2.Shoe"/>
+        </set>
+    </class>
+</hibernate-mapping>

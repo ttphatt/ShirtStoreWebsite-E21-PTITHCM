@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$psDigest95thPercentileByAvgUs" optimistic-lock="none" table="x$ps_digest_95th_percentile_by_avg_us">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$psDigest95thPercentileByAvgUsId" name="id">
+            <key-property name="avgUs" type="big_integer">
+                <column name="avg_us" precision="21" scale="0"/>
+            </key-property>
+            <key-property name="percentile" type="big_decimal">
+                <column name="percentile" precision="46" scale="4"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

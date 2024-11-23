@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$memoryByUserByCurrentBytes" optimistic-lock="none" table="x$memory_by_user_by_current_bytes">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$memoryByUserByCurrentBytesId" name="id">
+            <key-property name="user" type="string">
+                <column length="32" name="user"/>
+            </key-property>
+            <key-property name="currentCountUsed" type="big_integer">
+                <column name="current_count_used" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="currentAllocated" type="big_integer">
+                <column name="current_allocated" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="currentAvgAlloc" type="big_decimal">
+                <column name="current_avg_alloc" precision="45" scale="4"/>
+            </key-property>
+            <key-property name="currentMaxAlloc" type="java.lang.Long">
+                <column name="current_max_alloc"/>
+            </key-property>
+            <key-property name="totalAllocated" type="big_integer">
+                <column name="total_allocated" precision="42" scale="0"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

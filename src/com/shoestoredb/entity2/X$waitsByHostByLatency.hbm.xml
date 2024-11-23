@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$waitsByHostByLatency" optimistic-lock="none" table="x$waits_by_host_by_latency">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$waitsByHostByLatencyId" name="id">
+            <key-property name="host" type="string">
+                <column name="host"/>
+            </key-property>
+            <key-property name="event" type="string">
+                <column length="128" name="event"/>
+            </key-property>
+            <key-property name="total" type="long">
+                <column name="total"/>
+            </key-property>
+            <key-property name="totalLatency" type="long">
+                <column name="total_latency"/>
+            </key-property>
+            <key-property name="avgLatency" type="long">
+                <column name="avg_latency"/>
+            </key-property>
+            <key-property name="maxLatency" type="long">
+                <column name="max_latency"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

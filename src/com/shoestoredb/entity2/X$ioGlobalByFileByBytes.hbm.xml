@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$ioGlobalByFileByBytes" optimistic-lock="none" table="x$io_global_by_file_by_bytes">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$ioGlobalByFileByBytesId" name="id">
+            <key-property name="file" type="string">
+                <column length="512" name="file"/>
+            </key-property>
+            <key-property name="countRead" type="long">
+                <column name="count_read"/>
+            </key-property>
+            <key-property name="totalRead" type="long">
+                <column name="total_read"/>
+            </key-property>
+            <key-property name="avgRead" type="big_decimal">
+                <column name="avg_read" precision="23" scale="4"/>
+            </key-property>
+            <key-property name="countWrite" type="long">
+                <column name="count_write"/>
+            </key-property>
+            <key-property name="totalWritten" type="long">
+                <column name="total_written"/>
+            </key-property>
+            <key-property name="avgWrite" type="big_decimal">
+                <column name="avg_write" precision="23" scale="4"/>
+            </key-property>
+            <key-property name="total" type="long">
+                <column name="total"/>
+            </key-property>
+            <key-property name="writePct" type="big_decimal">
+                <column name="write_pct" precision="26"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

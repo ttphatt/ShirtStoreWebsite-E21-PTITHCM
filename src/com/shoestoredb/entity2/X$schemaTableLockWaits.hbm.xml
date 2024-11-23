@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$schemaTableLockWaits" optimistic-lock="none" table="x$schema_table_lock_waits">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$schemaTableLockWaitsId" name="id">
+            <key-property name="objectSchema" type="string">
+                <column length="64" name="object_schema"/>
+            </key-property>
+            <key-property name="objectName" type="string">
+                <column length="64" name="object_name"/>
+            </key-property>
+            <key-property name="waitingThreadId" type="long">
+                <column name="waiting_thread_id"/>
+            </key-property>
+            <key-property name="waitingPid" type="java.lang.Long">
+                <column name="waiting_pid"/>
+            </key-property>
+            <key-property name="waitingAccount" type="string">
+                <column length="65535" name="waiting_account"/>
+            </key-property>
+            <key-property name="waitingLockType" type="string">
+                <column length="32" name="waiting_lock_type"/>
+            </key-property>
+            <key-property name="waitingLockDuration" type="string">
+                <column length="32" name="waiting_lock_duration"/>
+            </key-property>
+            <key-property name="waitingQuery" type="string">
+                <column name="waiting_query"/>
+            </key-property>
+            <key-property name="waitingQuerySecs" type="java.lang.Long">
+                <column name="waiting_query_secs"/>
+            </key-property>
+            <key-property name="waitingQueryRowsAffected" type="java.lang.Long">
+                <column name="waiting_query_rows_affected"/>
+            </key-property>
+            <key-property name="waitingQueryRowsExamined" type="java.lang.Long">
+                <column name="waiting_query_rows_examined"/>
+            </key-property>
+            <key-property name="blockingThreadId" type="long">
+                <column name="blocking_thread_id"/>
+            </key-property>
+            <key-property name="blockingPid" type="java.lang.Long">
+                <column name="blocking_pid"/>
+            </key-property>
+            <key-property name="blockingAccount" type="string">
+                <column length="65535" name="blocking_account"/>
+            </key-property>
+            <key-property name="blockingLockType" type="string">
+                <column length="32" name="blocking_lock_type"/>
+            </key-property>
+            <key-property name="blockingLockDuration" type="string">
+                <column length="32" name="blocking_lock_duration"/>
+            </key-property>
+            <key-property name="sqlKillBlockingQuery" type="string">
+                <column length="31" name="sql_kill_blocking_query"/>
+            </key-property>
+            <key-property name="sqlKillBlockingConnection" type="string">
+                <column length="25" name="sql_kill_blocking_connection"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

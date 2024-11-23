@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="shoestoredb" name="com.shoestoredb.entity2.Rate" optimistic-lock="none" table="rate">
+        <id name="rateId" type="java.lang.Integer">
+            <column name="rate_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="com.shoestoredb.entity2.Customer" fetch="select" name="customer">
+            <column name="customer_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.shoestoredb.entity2.Shoe" fetch="select" name="shoe">
+            <column name="shoe_id" not-null="true"/>
+        </many-to-one>
+        <property name="ratingStars" type="int">
+            <column name="rating_stars" not-null="true"/>
+        </property>
+        <property name="headline" type="string">
+            <column length="50" name="headline" not-null="true"/>
+        </property>
+        <property name="ratingDetail" type="string">
+            <column length="200" name="rating_detail" not-null="true"/>
+        </property>
+        <property name="rateTime" type="timestamp">
+            <column length="19" name="rate_time" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

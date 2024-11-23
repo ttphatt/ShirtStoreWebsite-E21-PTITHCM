@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.SchemaRedundantIndexes" optimistic-lock="none" table="schema_redundant_indexes">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.SchemaRedundantIndexesId" name="id">
+            <key-property name="tableSchema" type="string">
+                <column length="64" name="table_schema"/>
+            </key-property>
+            <key-property name="tableName" type="string">
+                <column length="64" name="table_name"/>
+            </key-property>
+            <key-property name="redundantIndexName" type="string">
+                <column length="64" name="redundant_index_name"/>
+            </key-property>
+            <key-property name="redundantIndexColumns" type="string">
+                <column length="65535" name="redundant_index_columns"/>
+            </key-property>
+            <key-property name="redundantIndexNonUnique" type="java.lang.Integer">
+                <column name="redundant_index_non_unique"/>
+            </key-property>
+            <key-property name="dominantIndexName" type="string">
+                <column length="64" name="dominant_index_name"/>
+            </key-property>
+            <key-property name="dominantIndexColumns" type="string">
+                <column length="65535" name="dominant_index_columns"/>
+            </key-property>
+            <key-property name="dominantIndexNonUnique" type="java.lang.Integer">
+                <column name="dominant_index_non_unique"/>
+            </key-property>
+            <key-property name="subpartExists" type="int">
+                <column name="subpart_exists"/>
+            </key-property>
+            <key-property name="sqlDropIndex" type="string">
+                <column length="223" name="sql_drop_index"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

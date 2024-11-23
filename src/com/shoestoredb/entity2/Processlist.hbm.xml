@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.Processlist" optimistic-lock="none" table="processlist">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.ProcesslistId" name="id">
+            <key-property name="thdId" type="long">
+                <column name="thd_id"/>
+            </key-property>
+            <key-property name="connId" type="java.lang.Long">
+                <column name="conn_id"/>
+            </key-property>
+            <key-property name="user" type="string">
+                <column length="288" name="user"/>
+            </key-property>
+            <key-property name="db" type="string">
+                <column length="64" name="db"/>
+            </key-property>
+            <key-property name="command" type="string">
+                <column length="16" name="command"/>
+            </key-property>
+            <key-property name="state" type="string">
+                <column length="64" name="state"/>
+            </key-property>
+            <key-property name="time" type="java.lang.Long">
+                <column name="time"/>
+            </key-property>
+            <key-property name="currentStatement" type="string">
+                <column name="current_statement"/>
+            </key-property>
+            <key-property name="executionEngine" type="string">
+                <column length="9" name="execution_engine"/>
+            </key-property>
+            <key-property name="statementLatency" type="string">
+                <column length="11" name="statement_latency"/>
+            </key-property>
+            <key-property name="progress" type="big_decimal">
+                <column name="progress" precision="26"/>
+            </key-property>
+            <key-property name="lockLatency" type="string">
+                <column length="11" name="lock_latency"/>
+            </key-property>
+            <key-property name="cpuLatency" type="string">
+                <column length="11" name="cpu_latency"/>
+            </key-property>
+            <key-property name="rowsExamined" type="java.lang.Long">
+                <column name="rows_examined"/>
+            </key-property>
+            <key-property name="rowsSent" type="java.lang.Long">
+                <column name="rows_sent"/>
+            </key-property>
+            <key-property name="rowsAffected" type="java.lang.Long">
+                <column name="rows_affected"/>
+            </key-property>
+            <key-property name="tmpTables" type="java.lang.Long">
+                <column name="tmp_tables"/>
+            </key-property>
+            <key-property name="tmpDiskTables" type="java.lang.Long">
+                <column name="tmp_disk_tables"/>
+            </key-property>
+            <key-property name="fullScan" type="string">
+                <column length="3" name="full_scan"/>
+            </key-property>
+            <key-property name="lastStatement" type="string">
+                <column name="last_statement"/>
+            </key-property>
+            <key-property name="lastStatementLatency" type="string">
+                <column length="11" name="last_statement_latency"/>
+            </key-property>
+            <key-property name="currentMemory" type="string">
+                <column length="11" name="current_memory"/>
+            </key-property>
+            <key-property name="lastWait" type="string">
+                <column length="128" name="last_wait"/>
+            </key-property>
+            <key-property name="lastWaitLatency" type="string">
+                <column length="13" name="last_wait_latency"/>
+            </key-property>
+            <key-property name="source" type="string">
+                <column length="64" name="source"/>
+            </key-property>
+            <key-property name="trxLatency" type="string">
+                <column length="11" name="trx_latency"/>
+            </key-property>
+            <key-property name="trxState" type="string">
+                <column length="11" name="trx_state"/>
+            </key-property>
+            <key-property name="trxAutocommit" type="string">
+                <column length="3" name="trx_autocommit"/>
+            </key-property>
+            <key-property name="pid" type="string">
+                <column length="1024" name="pid"/>
+            </key-property>
+            <key-property name="programName" type="string">
+                <column length="1024" name="program_name"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

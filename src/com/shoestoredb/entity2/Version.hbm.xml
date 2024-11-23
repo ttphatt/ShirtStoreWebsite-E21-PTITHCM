@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.Version" optimistic-lock="none" table="version">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.VersionId" name="id">
+            <key-property name="sysVersion" type="string">
+                <column length="5" name="sys_version"/>
+            </key-property>
+            <key-property name="mysqlVersion" type="string">
+                <column length="6" name="mysql_version"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

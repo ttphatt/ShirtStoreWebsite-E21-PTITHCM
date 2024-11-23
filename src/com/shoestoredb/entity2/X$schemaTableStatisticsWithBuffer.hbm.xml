@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$schemaTableStatisticsWithBuffer" optimistic-lock="none" table="x$schema_table_statistics_with_buffer">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$schemaTableStatisticsWithBufferId" name="id">
+            <key-property name="tableSchema" type="string">
+                <column length="64" name="table_schema"/>
+            </key-property>
+            <key-property name="tableName" type="string">
+                <column length="64" name="table_name"/>
+            </key-property>
+            <key-property name="rowsFetched" type="long">
+                <column name="rows_fetched"/>
+            </key-property>
+            <key-property name="fetchLatency" type="long">
+                <column name="fetch_latency"/>
+            </key-property>
+            <key-property name="rowsInserted" type="long">
+                <column name="rows_inserted"/>
+            </key-property>
+            <key-property name="insertLatency" type="long">
+                <column name="insert_latency"/>
+            </key-property>
+            <key-property name="rowsUpdated" type="long">
+                <column name="rows_updated"/>
+            </key-property>
+            <key-property name="updateLatency" type="long">
+                <column name="update_latency"/>
+            </key-property>
+            <key-property name="rowsDeleted" type="long">
+                <column name="rows_deleted"/>
+            </key-property>
+            <key-property name="deleteLatency" type="long">
+                <column name="delete_latency"/>
+            </key-property>
+            <key-property name="ioReadRequests" type="big_integer">
+                <column name="io_read_requests" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioRead" type="big_integer">
+                <column name="io_read" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="ioReadLatency" type="big_integer">
+                <column name="io_read_latency" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioWriteRequests" type="big_integer">
+                <column name="io_write_requests" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioWrite" type="big_integer">
+                <column name="io_write" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="ioWriteLatency" type="big_integer">
+                <column name="io_write_latency" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioMiscRequests" type="big_integer">
+                <column name="io_misc_requests" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="ioMiscLatency" type="big_integer">
+                <column name="io_misc_latency" precision="42" scale="0"/>
+            </key-property>
+            <key-property name="innodbBufferAllocated" type="big_integer">
+                <column name="innodb_buffer_allocated" precision="44" scale="0"/>
+            </key-property>
+            <key-property name="innodbBufferData" type="big_integer">
+                <column name="innodb_buffer_data" precision="44" scale="0"/>
+            </key-property>
+            <key-property name="innodbBufferFree" type="big_integer">
+                <column name="innodb_buffer_free" precision="45" scale="0"/>
+            </key-property>
+            <key-property name="innodbBufferPages" type="java.lang.Long">
+                <column name="innodb_buffer_pages"/>
+            </key-property>
+            <key-property name="innodbBufferPagesHashed" type="java.lang.Long">
+                <column name="innodb_buffer_pages_hashed"/>
+            </key-property>
+            <key-property name="innodbBufferPagesOld" type="java.lang.Long">
+                <column name="innodb_buffer_pages_old"/>
+            </key-property>
+            <key-property name="innodbBufferRowsCached" type="big_integer">
+                <column name="innodb_buffer_rows_cached" precision="45" scale="0"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

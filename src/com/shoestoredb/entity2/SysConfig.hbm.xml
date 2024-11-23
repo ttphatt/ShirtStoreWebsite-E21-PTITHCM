@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.SysConfig" optimistic-lock="none" table="sys_config">
+        <id name="variable" type="string">
+            <column length="128" name="variable"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="value" type="string">
+            <column length="128" name="value"/>
+        </property>
+        <property name="setTime" type="timestamp">
+            <column length="19" name="set_time"/>
+        </property>
+        <property name="setBy" type="string">
+            <column length="128" name="set_by"/>
+        </property>
+    </class>
+</hibernate-mapping>

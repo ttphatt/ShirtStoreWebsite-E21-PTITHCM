@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="shoestoredb" name="com.shoestoredb.entity2.OrderDetail" optimistic-lock="none" table="order_detail">
+        <composite-id class="com.shoestoredb.entity2.OrderDetailId" name="id">
+            <key-property name="orderId" type="int">
+                <column name="order_id"/>
+            </key-property>
+            <key-property name="shoeId" type="int">
+                <column name="shoe_id"/>
+            </key-property>
+            <key-property name="quantity" type="int">
+                <column name="quantity"/>
+            </key-property>
+            <key-property name="subTotal" type="float">
+                <column name="sub_total" precision="12" scale="0"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="com.shoestoredb.entity2.Shoe" fetch="select" insert="false" name="shoe" update="false">
+            <column name="shoe_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.shoestoredb.entity2.ShoeOrder" fetch="select" insert="false" name="shoeOrder" update="false">
+            <column name="order_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

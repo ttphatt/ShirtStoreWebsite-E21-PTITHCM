@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.MemoryGlobalByCurrentBytes" optimistic-lock="none" table="memory_global_by_current_bytes">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.MemoryGlobalByCurrentBytesId" name="id">
+            <key-property name="eventName" type="string">
+                <column length="128" name="event_name"/>
+            </key-property>
+            <key-property name="currentCount" type="long">
+                <column name="current_count"/>
+            </key-property>
+            <key-property name="currentAlloc" type="string">
+                <column length="11" name="current_alloc"/>
+            </key-property>
+            <key-property name="currentAvgAlloc" type="string">
+                <column length="11" name="current_avg_alloc"/>
+            </key-property>
+            <key-property name="highCount" type="long">
+                <column name="high_count"/>
+            </key-property>
+            <key-property name="highAlloc" type="string">
+                <column length="11" name="high_alloc"/>
+            </key-property>
+            <key-property name="highAvgAlloc" type="string">
+                <column length="11" name="high_avg_alloc"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

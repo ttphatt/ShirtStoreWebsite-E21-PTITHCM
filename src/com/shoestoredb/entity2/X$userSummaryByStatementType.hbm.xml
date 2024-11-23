@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$userSummaryByStatementType" optimistic-lock="none" table="x$user_summary_by_statement_type">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$userSummaryByStatementTypeId" name="id">
+            <key-property name="user" type="string">
+                <column length="32" name="user"/>
+            </key-property>
+            <key-property name="statement" type="string">
+                <column length="128" name="statement"/>
+            </key-property>
+            <key-property name="total" type="long">
+                <column name="total"/>
+            </key-property>
+            <key-property name="totalLatency" type="long">
+                <column name="total_latency"/>
+            </key-property>
+            <key-property name="maxLatency" type="long">
+                <column name="max_latency"/>
+            </key-property>
+            <key-property name="lockLatency" type="long">
+                <column name="lock_latency"/>
+            </key-property>
+            <key-property name="cpuLatency" type="long">
+                <column name="cpu_latency"/>
+            </key-property>
+            <key-property name="rowsSent" type="long">
+                <column name="rows_sent"/>
+            </key-property>
+            <key-property name="rowsExamined" type="long">
+                <column name="rows_examined"/>
+            </key-property>
+            <key-property name="rowsAffected" type="long">
+                <column name="rows_affected"/>
+            </key-property>
+            <key-property name="fullScans" type="long">
+                <column name="full_scans"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

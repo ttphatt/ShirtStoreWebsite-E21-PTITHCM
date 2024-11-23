@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.SessionSslStatus" optimistic-lock="none" table="session_ssl_status">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.SessionSslStatusId" name="id">
+            <key-property name="threadId" type="long">
+                <column name="thread_id"/>
+            </key-property>
+            <key-property name="sslVersion" type="string">
+                <column length="1024" name="ssl_version"/>
+            </key-property>
+            <key-property name="sslCipher" type="string">
+                <column length="1024" name="ssl_cipher"/>
+            </key-property>
+            <key-property name="sslSessionsReused" type="string">
+                <column length="1024" name="ssl_sessions_reused"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

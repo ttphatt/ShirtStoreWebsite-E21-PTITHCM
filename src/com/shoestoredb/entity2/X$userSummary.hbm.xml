@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$userSummary" optimistic-lock="none" table="x$user_summary">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$userSummaryId" name="id">
+            <key-property name="user" type="string">
+                <column length="32" name="user"/>
+            </key-property>
+            <key-property name="statements" type="big_integer">
+                <column name="statements" precision="64" scale="0"/>
+            </key-property>
+            <key-property name="statementLatency" type="big_integer">
+                <column name="statement_latency" precision="64" scale="0"/>
+            </key-property>
+            <key-property name="statementAvgLatency" type="big_decimal">
+                <column name="statement_avg_latency" precision="65" scale="4"/>
+            </key-property>
+            <key-property name="tableScans" type="big_integer">
+                <column name="table_scans" precision="65" scale="0"/>
+            </key-property>
+            <key-property name="fileIos" type="big_integer">
+                <column name="file_ios" precision="64" scale="0"/>
+            </key-property>
+            <key-property name="fileIoLatency" type="big_integer">
+                <column name="file_io_latency" precision="64" scale="0"/>
+            </key-property>
+            <key-property name="currentConnections" type="big_integer">
+                <column name="current_connections" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="totalConnections" type="big_integer">
+                <column name="total_connections" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="uniqueHosts" type="long">
+                <column name="unique_hosts"/>
+            </key-property>
+            <key-property name="currentMemory" type="big_integer">
+                <column name="current_memory" precision="63" scale="0"/>
+            </key-property>
+            <key-property name="totalMemoryAllocated" type="big_integer">
+                <column name="total_memory_allocated" precision="64" scale="0"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

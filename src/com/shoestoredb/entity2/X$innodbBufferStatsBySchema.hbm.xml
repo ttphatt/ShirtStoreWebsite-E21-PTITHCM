@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$innodbBufferStatsBySchema" optimistic-lock="none" table="x$innodb_buffer_stats_by_schema">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$innodbBufferStatsBySchemaId" name="id">
+            <key-property name="objectSchema" type="string">
+                <column length="65535" name="object_schema"/>
+            </key-property>
+            <key-property name="allocated" type="big_integer">
+                <column name="allocated" precision="44" scale="0"/>
+            </key-property>
+            <key-property name="data" type="big_integer">
+                <column name="data" precision="44" scale="0"/>
+            </key-property>
+            <key-property name="pages" type="long">
+                <column name="pages"/>
+            </key-property>
+            <key-property name="pagesHashed" type="long">
+                <column name="pages_hashed"/>
+            </key-property>
+            <key-property name="pagesOld" type="long">
+                <column name="pages_old"/>
+            </key-property>
+            <key-property name="rowsCached" type="big_integer">
+                <column name="rows_cached" precision="45" scale="0"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

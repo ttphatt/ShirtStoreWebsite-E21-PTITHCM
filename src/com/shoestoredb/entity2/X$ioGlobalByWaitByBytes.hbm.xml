@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$ioGlobalByWaitByBytes" optimistic-lock="none" table="x$io_global_by_wait_by_bytes">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$ioGlobalByWaitByBytesId" name="id">
+            <key-property name="eventName" type="string">
+                <column length="128" name="event_name"/>
+            </key-property>
+            <key-property name="total" type="long">
+                <column name="total"/>
+            </key-property>
+            <key-property name="totalLatency" type="long">
+                <column name="total_latency"/>
+            </key-property>
+            <key-property name="minLatency" type="long">
+                <column name="min_latency"/>
+            </key-property>
+            <key-property name="avgLatency" type="long">
+                <column name="avg_latency"/>
+            </key-property>
+            <key-property name="maxLatency" type="long">
+                <column name="max_latency"/>
+            </key-property>
+            <key-property name="countRead" type="long">
+                <column name="count_read"/>
+            </key-property>
+            <key-property name="totalRead" type="long">
+                <column name="total_read"/>
+            </key-property>
+            <key-property name="avgRead" type="big_decimal">
+                <column name="avg_read" precision="23" scale="4"/>
+            </key-property>
+            <key-property name="countWrite" type="long">
+                <column name="count_write"/>
+            </key-property>
+            <key-property name="totalWritten" type="long">
+                <column name="total_written"/>
+            </key-property>
+            <key-property name="avgWritten" type="big_decimal">
+                <column name="avg_written" precision="23" scale="4"/>
+            </key-property>
+            <key-property name="totalRequested" type="long">
+                <column name="total_requested"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

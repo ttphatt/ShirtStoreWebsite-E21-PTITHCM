@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.X$statementsWithErrorsOrWarnings" optimistic-lock="none" table="x$statements_with_errors_or_warnings">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.X$statementsWithErrorsOrWarningsId" name="id">
+            <key-property name="query" type="string">
+                <column name="query"/>
+            </key-property>
+            <key-property name="db" type="string">
+                <column length="64" name="db"/>
+            </key-property>
+            <key-property name="execCount" type="long">
+                <column name="exec_count"/>
+            </key-property>
+            <key-property name="errors" type="long">
+                <column name="errors"/>
+            </key-property>
+            <key-property name="errorPct" type="big_decimal">
+                <column name="error_pct" precision="27" scale="4"/>
+            </key-property>
+            <key-property name="warnings" type="long">
+                <column name="warnings"/>
+            </key-property>
+            <key-property name="warningPct" type="big_decimal">
+                <column name="warning_pct" precision="27" scale="4"/>
+            </key-property>
+            <key-property name="firstSeen" type="timestamp">
+                <column length="26" name="first_seen"/>
+            </key-property>
+            <key-property name="lastSeen" type="timestamp">
+                <column length="26" name="last_seen"/>
+            </key-property>
+            <key-property name="digest" type="string">
+                <column length="64" name="digest"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="sys" name="com.shoestoredb.entity2.MemoryByUserByCurrentBytes" optimistic-lock="none" table="memory_by_user_by_current_bytes">
+        <comment>VIEW</comment>
+        <composite-id class="com.shoestoredb.entity2.MemoryByUserByCurrentBytesId" name="id">
+            <key-property name="user" type="string">
+                <column length="32" name="user"/>
+            </key-property>
+            <key-property name="currentCountUsed" type="big_integer">
+                <column name="current_count_used" precision="41" scale="0"/>
+            </key-property>
+            <key-property name="currentAllocated" type="string">
+                <column length="11" name="current_allocated"/>
+            </key-property>
+            <key-property name="currentAvgAlloc" type="string">
+                <column length="11" name="current_avg_alloc"/>
+            </key-property>
+            <key-property name="currentMaxAlloc" type="string">
+                <column length="11" name="current_max_alloc"/>
+            </key-property>
+            <key-property name="totalAllocated" type="string">
+                <column length="11" name="total_allocated"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

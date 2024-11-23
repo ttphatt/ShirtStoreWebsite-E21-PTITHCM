@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Apr 19, 2024, 5:09:41 PM by Hibernate Tools 5.6.15.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class catalog="shoestoredb" name="com.shoestoredb.entity2.Customer" optimistic-lock="none" table="customer">
+        <id name="customerId" type="java.lang.Integer">
+            <column name="customer_id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="email" type="string">
+            <column length="50" name="email" not-null="true" unique="true"/>
+        </property>
+        <property name="fullName" type="string">
+            <column length="50" name="full_name" not-null="true"/>
+        </property>
+        <property name="address" type="string">
+            <column length="60" name="address" not-null="true"/>
+        </property>
+        <property name="city" type="string">
+            <column length="30" name="city" not-null="true"/>
+        </property>
+        <property name="country" type="string">
+            <column length="30" name="country" not-null="true"/>
+        </property>
+        <property name="phoneNumber" type="string">
+            <column length="10" name="phone_number" not-null="true"/>
+        </property>
+        <property name="zip" type="string">
+            <column length="20" name="zip" not-null="true"/>
+        </property>
+        <property name="password" type="string">
+            <column length="50" name="password" not-null="true"/>
+        </property>
+        <property name="signUpDate" type="timestamp">
+            <column length="19" name="sign_up_date" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="rates" table="rate">
+            <key>
+                <column name="customer_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.shoestoredb.entity2.Rate"/>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="shoeOrders" table="shoe_order">
+            <key>
+                <column name="customer_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.shoestoredb.entity2.ShoeOrder"/>
+        </set>
+    </class>
+</hibernate-mapping>
