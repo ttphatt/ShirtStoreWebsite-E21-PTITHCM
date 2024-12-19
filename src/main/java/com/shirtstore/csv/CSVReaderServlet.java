@@ -11,14 +11,6 @@ import java.util.Map;
 
 @WebServlet("/csvdata")
 public class CSVReaderServlet extends HttpServlet {
-//    private Map<String, String> messageMap = new HashMap<String, String>();
-//    private String csvFilePath = "C:\\Users\\Admin\\Downloads\\message.csv";
-
-//    @Override
-//    public void init() throws ServletException {
-//        new CSVReaderUtility(csvFilePath);
-//        loadCSVData();
-//    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

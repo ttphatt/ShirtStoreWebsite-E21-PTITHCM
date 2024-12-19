@@ -153,7 +153,7 @@ public class Customer implements java.io.Serializable {
 
 	@Column(name = "state", nullable = true, length = 50)
 	public String getState() {
-		return this.city;
+		return this.state;
 	}
 
 	public void setState(String state) {

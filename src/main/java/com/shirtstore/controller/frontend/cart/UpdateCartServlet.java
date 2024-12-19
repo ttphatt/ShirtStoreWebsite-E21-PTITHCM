@@ -57,7 +57,6 @@ public class UpdateCartServlet extends HttpServlet {
 			cartService.updateCart(customer.getCustomerId());
 		}
 
-
 		String cartPage = request.getContextPath().concat("/view_cart");
 		response.sendRedirect(cartPage);
 	}

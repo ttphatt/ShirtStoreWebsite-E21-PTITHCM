@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -122,9 +123,21 @@ public class ImportService {
     public void addImport() throws ServletException, IOException {
         String staffEmail = request.getParameter("staffEmail");
         int importId = Integer.parseInt(request.getParameter("importId"));
-        float totalPrice = Float.parseFloat(request.getParameter("totalPriceField"));
 
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+
+        if(importDAO.get(importId) == null){
+            out.print("{\"valid\": " + true + "}");
+        }else{
+            out.print("{\"valid\": " + false + "}");
+            return;
+        }
+
+        float totalPrice = Float.parseFloat(request.getParameter("totalPriceField"));
         String dateStr = request.getParameter("createdDate");
+
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date createdDate;
 
@@ -172,6 +185,8 @@ public class ImportService {
             Warehouse warehouse = warehouseDAO.get(importDetail.getProduct_id());
             warehouse.setQuantity(warehouse.getQuantity() + importDetail.getQuantity());
             warehouseDAO.update(warehouse);
+
+            new JPADAO<>().insert_import_prices(importDetail.getProduct_id(), importDetail.getQuantity(), importDetail.getPrice(), importDetail.getSize());
         }
 
         for (Size size : listSizes) {
@@ -184,6 +199,7 @@ public class ImportService {
             sizeDAO.update(temp);
         }
 
-        response.sendRedirect(request.getContextPath() + "/admin/view_import");
+        out.flush();
+        out.close();
     }
 }

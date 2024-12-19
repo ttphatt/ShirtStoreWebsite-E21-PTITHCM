@@ -76,50 +76,18 @@ public class PromotionServices {
     }
 
     //Tạo 1 ma khuyen mai moi
-    public void createPromotion() throws ServletException, IOException {
+    public void createPromotion() throws ServletException, IOException, ParseException {
         String promotionID = request.getParameter("promotionId");
-        System.out.println("first " + promotionID);
 
-        //Kiểm tra có trùng loại khuyen mai có sẵn hay không
-        Promotion existPromotion = promotionDAO.findByName(promotionID);
+        //Tạo 1 object type mới
+        Promotion newPromotion = new Promotion();
 
-        //Trùng loại áo có sẵn
-        if( existPromotion != null) {
-            String message = "Could not create new promotion. Promotion already exists with the name: " + existPromotion;
-            request.setAttribute("message", message);
-
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-
-            requestDispatcher.forward(request, response);
-        }
-
-        //Không trùng loại khuyen mãi có san
-        else {
-            //Tạo 1 object type mới
-            Promotion newPromotion = new Promotion();
-
-            //Lấy dữ liệu từ view và lưu 1 object promotion = newPromotion
-            newPromotion = readFields(newPromotion);
-
-            if(newPromotion ==null){
-                String message = "Start date cannot be after end date";
-                request.setAttribute("message", message);
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-                requestDispatcher.forward(request, response);
-            }else{
-                //Đẩy object type mới vừa tạo xuống model để thêm vào database
-                Promotion createdPromotion = promotionDAO.create(newPromotion);
-                //Đẩy ra view thông báo thành công
-                if(createdPromotion.getPromotionId() != null) {
-                    String message = "New promotion has been created successfully";
-                    //Refresh lại bằng cách liệt kê lại các khuyen mai
-                    listPromotion(message);
-            }
-            }
-        }
+        //Lấy dữ liệu từ view và lưu 1 object promotion = newPromotion
+        newPromotion = readFields(newPromotion);
+        promotionDAO.create(newPromotion);
     }
 
-    private Promotion readFields(Promotion promotion) throws ServletException, IOException{
+    private Promotion readFields(Promotion promotion) throws ServletException, IOException, ParseException {
         String promotionId = request.getParameter("promotionId");
         String description = request.getParameter("description");
         String promotionType = request.getParameter("type");
@@ -130,31 +98,38 @@ public class PromotionServices {
         Float percent = Float.parseFloat(request.getParameter("percent"));
 
 
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate;
         Date endDate;
+        String startDateString = request.getParameter("startDate");
+        String endDateString = request.getParameter("endDate");
+        System.out.println(startDateString);
+        System.out.println(endDateString);
 
         try {
-            startDate = df.parse(request.getParameter("startDate"));
-        }
-        catch(ParseException ex) {
+            startDate = df.parse(startDateString);
+            System.out.println(startDate);
+        } catch(ParseException ex) {
             ex.printStackTrace();
             throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
         }
 
-        try {
-            endDate = df.parse(request.getParameter("endDate"));
-        }
-        catch(ParseException ex) {
+       try {
+            endDate = df.parse(endDateString);
+            System.out.println(endDate);
+        } catch(ParseException ex) {
             ex.printStackTrace();
             throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
         }
 
-        // Check if startDate is after endDate
-        if (startDate.after(endDate) || startDate.equals(endDate)) {
-            promotion = null;
-        }
-        else {
+
+//
+//        // Check if startDate is after endDate
+//        if (startDate.after(endDate) || startDate.equals(endDate)) {
+//            promotion = null;
+//        }
+//        else {
             //set fields
             promotion.setPromotionId(promotionId);
             promotion.setDescription(description);
@@ -166,14 +141,17 @@ public class PromotionServices {
             promotion.setPriceLimit(price_limit);
             promotion.setQuantityInStock(quantity_in_stock);
             promotion.setStatus(status);
-        }
+//        }
         return promotion;
     }
+
 
     public void editPromotion() throws ServletException, IOException {
         //Lấy ra id của loại promotion từ view
         String promotionId = request.getParameter("promotionId");
         System.out.println(promotionId);
+
+        request.getSession().setAttribute("isUpdate",true);
 
         //Tạo 1 object promotion để lưu dữ liệu của promotion được edit theo id vừa lấy
         Promotion promotion = promotionDAO.get(promotionId);
@@ -187,59 +165,58 @@ public class PromotionServices {
     }
 
     public void updatePromotion() throws ServletException, IOException {
+        System.out.println("Update Promotion");
         String promotionId = request.getParameter("promotionId");
         System.out.println(promotionId);
         String description = request.getParameter("description");
+        System.out.println(description);
         String status = request.getParameter("status");
+        System.out.println(status);
         Integer quantity_in_stock = Integer.parseInt(request.getParameter("quantityInStock"));
-        Long usedPromotion = promotionDAO.countUsedPromotion(promotionId);
+        System.out.println(quantity_in_stock);
 
-        if(quantity_in_stock < usedPromotion ) {
-            String message = "Cannot change the quantity of promotion " + promotionId + " lower than the used one";
-            listPromotion(message);
-            return;
-        }
-
-
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate;
         Date endDate;
+        String startDateString = request.getParameter("startDate");
+        String endDateString = request.getParameter("endDate");
+        System.out.println(startDateString);
+        System.out.println(endDateString);
 
         try {
-            startDate = df.parse(request.getParameter("startDate"));
-        }
-        catch(ParseException ex) {
-            ex.printStackTrace();
-            throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
-        }
-        try {
-            endDate = df.parse(request.getParameter("endDate"));
-        }
-        catch(ParseException ex) {
+            startDate = df.parse(startDateString);
+        } catch(ParseException ex) {
             ex.printStackTrace();
             throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
         }
 
-        // Check if startDate is after endDate
-        if (startDate.after(endDate) || startDate.equals(endDate)) {
-            String message = "Start date cannot be after end date";
-            listPromotion(message);
-            return;
+        try {
+            endDate = df.parse(endDateString);
+        } catch(ParseException ex) {
+            ex.printStackTrace();
+            throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
         }
 
         Promotion existedPromotion = promotionDAO.get(promotionId);
+        Long usedPromotion = promotionDAO.countUsedPromotion(promotionId);
+        System.out.println("Used promotion: " + usedPromotion);
 
-        existedPromotion.setDescription(description);
-        existedPromotion.setStartDate(startDate);
-        existedPromotion.setEndDate(endDate);
-        existedPromotion.setStatus(status);
-        existedPromotion.setQuantityInStock(quantity_in_stock);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
 
-        promotionDAO.update(existedPromotion);
-
-        String message = "The promotion has been updated successfully";
-        //Refresh lại bằng cách liệt kê lại các khuyen mai
-        listPromotion(message);
+        if(quantity_in_stock < usedPromotion ) {
+            System.out.println("FAIL UPDATING");
+            out.print("{\"valid\": " + false + "}");
+        }else{
+            existedPromotion.setDescription(description);
+            existedPromotion.setStartDate(startDate);
+            existedPromotion.setEndDate(endDate);
+            existedPromotion.setStatus(status);
+            existedPromotion.setQuantityInStock(quantity_in_stock);
+            out.print("{\"valid\": " + true + "}");
+            promotionDAO.update(existedPromotion);
+        }
 
     }
 
@@ -489,4 +466,13 @@ public class PromotionServices {
         promotionDAO.update(promotion);
     }
 
+    public Promotion checkPromotionCode(String promotionCode) {
+        Promotion promotion = promotionDAO.findByName(promotionCode);
+        return promotion;
+    }
+
+    public Promotion checkDuplicatePromotion(String promotionId) {
+        Promotion promotion = promotionDAO.findByName(promotionId);
+        return promotion;
+    }
 }

@@ -21,7 +21,6 @@ public class ListUsersServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		System.out.println(request.getSession().getAttribute("userRole"));
 		if(request.getSession().getAttribute("userRole").equals("admin")) {
 			UserServices userServices = new UserServices(request, response);
 			userServices.listUser();

@@ -12,82 +12,94 @@
   <link href="../css/warehouse-style.css" rel="stylesheet" type="text/css" />
   <link href="../css/modal-style.css" rel="stylesheet" type="text/css" />
 
+  <link rel="stylesheet" type="text/css" href="../css/custom_background_template.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/custom_row_template.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/table_list_admin_template.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/search_button_template.css"/>
+  <link rel="stylesheet" type="text/css" href="../css/custom_border_template.css"/>
 </head>
 
 <body class="body">
   <jsp:directive.include file="header.jsp" />
-  <br><br><br><br>
 
-  <div class="w-layout-blockcontainer w-container">
-    <div class="nav-wrapper">
+  <div class="background-div-content">
+    <div class="container">
+      <div class="w-layout-blockcontainer w-container">
+        <div class="nav-wrapper">
 
-      <h1 class="heading-h1">Warehouse</h1>
+          <h1 class="heading-h1">Warehouse</h1>
 
-      <div class="nav-button-wrapper">
-        <a href="view_import" class="button w-button">View Import Receipt</a>
-        <a href="#" class="button w-button">Create Import Receipt</a>
-        <a href="stock_check" class="button w-button">Stock Check</a>
+          <div class="nav-button-wrapper">
+            <a href="view_import" class="button w-button">View Import Receipt</a>
+            <a href="#" class="button w-button">Create Import Receipt</a>
+            <a href="stock_check" class="button w-button">Stock Check</a>
+          </div>
+
+          <h1 class="heading-h2">Create Import Receipt</h1>
+
+        </div>
+
+        <div class="form-wrapper w-form border custom-border">
+          <form id="create_import_form" name="create_import_form" method="post" class="form" action="add_import">
+            <div class="fields-wrapper">
+              <label for="staffName" class="field-label">Staff&#x27;s Name</label>
+              <input class="text-field w-input" maxlength="256" name="staffName" type="text"
+                     id="staffName" value="${sessionScope.userFullName}" readonly/>
+            </div>
+
+            <div class="fields-wrapper">
+              <label for="importId" class="field-label">Import&#x27;s ID</label>
+              <input class="text-field w-input" maxlength="256" name="importId"
+                     type="text" id="importId"/>
+            </div>
+
+            <div class="fields-wrapper">
+              <label for="totalPriceField" class="field-label">Total Price</label>
+              <input class="text-field w-input" maxlength="256" name="totalPriceField" id="totalPriceField"
+                     type="text" value="0.00" readonly/>
+            </div>
+
+            <div class="fields-wrapper is-contains-datefield">
+              <label for="createdDate" class="field-label">Created Date</label>
+              <input type="date" class="input" id="createdDate" name="createdDate"/>
+            </div>
+
+            <input type="hidden" name="productData" id="productData" />
+            <input type="hidden" name="staffEmail" id="staffEmail" value="${sessionScope.userEmail}" />
+
+          </form>
+        </div>
+
+        <table class="table-wrapper">
+          <thead class="table_head">
+          <tr class="table_row">
+            <th class="table_header align-middle text-center">Index</th>
+            <th class="table_header align-middle text-center">ID</th>
+            <th class="table_header align-middle text-center">Product&#x27;s Name</th>
+            <th class="table_header align-middle text-center">Size</th>
+            <th class="table_header align-middle text-center">Quantity</th>
+            <th class="table_header align-middle text-center">Price</th>
+            <th class="table_header align-middle text-center">Total</th>
+          </tr>
+          </thead>
+          <tbody class="table_body" id="result">
+
+          </tbody>
+        </table>
+
+        <div class="row justify-content-center mb-5">
+          <div class="button-group">
+            <a href="#" class="button is-medium-button w-button" id="createImportBtn">Create</a>
+            <a href="#" class="open-modal-btn button is-medium-button w-button">Add</a>
+            <a href="#" class="button is-medium-button is-delete-button w-button"  id="deleteProductBtn">Detele</a>
+          </div>
+        </div>
+
       </div>
-
-      <h1 class="heading-h2">Create Import Receipt</h1>
-
     </div>
-
-    <div class="form-wrapper w-form">
-      <form id="create_import_form" name="create_import_form" method="post" class="form" action="add_import">
-        <div class="fields-wrapper">
-          <label for="staffName" class="field-label">Staff&#x27;s Name</label>
-          <input class="text-field w-input" maxlength="256" name="staffName" type="text"
-                 id="staffName" value="${sessionScope.userFullName}" readonly/>
-        </div>
-
-        <div class="fields-wrapper">
-          <label for="importId" class="field-label">Import&#x27;s ID</label>
-          <input class="text-field w-input" maxlength="256" name="importId"
-                 type="text" id="importId"/>
-        </div>
-
-        <div class="fields-wrapper">
-          <label for="totalPriceField" class="field-label">Total Price</label>
-          <input class="text-field w-input" maxlength="256" name="totalPriceField" id="totalPriceField"
-                  type="text" value="0.00" readonly/>
-        </div>
-
-        <div class="fields-wrapper is-contains-datefield">
-          <label for="createdDate" class="field-label">Created Date</label>
-          <input type="date" class="input" id="createdDate" name="createdDate"/>
-        </div>
-
-        <input type="hidden" name="productData" id="productData" />
-        <input type="hidden" name="staffEmail" id="staffEmail" value="${sessionScope.userEmail}" />
-
-      </form>
-    </div>
-
-    <table class="table-wrapper">
-      <thead class="table_head">
-        <tr class="table_row">
-          <th class="table_header align-middle text-center">Index</th>
-          <th class="table_header align-middle text-center">ID</th>
-          <th class="table_header align-middle text-center">Product&#x27;s Name</th>
-          <th class="table_header align-middle text-center">Size</th>
-          <th class="table_header align-middle text-center">Quantity</th>
-          <th class="table_header align-middle text-center">Price</th>
-          <th class="table_header align-middle text-center">Total</th>
-        </tr>
-      </thead>
-      <tbody class="table_body" id="result">
-
-      </tbody>
-    </table>
-
-    <div class="button-group">
-      <a href="#" class="button is-medium-button w-button" id="createImportBtn">Create</a>
-      <a href="#" class="open-modal-btn button is-medium-button w-button">Add</a>
-      <a href="#" class="button is-medium-button is-delete-button w-button"  id="deleteProductBtn">Detele</a>
-    </div>
-
   </div>
+
+
   <script
           src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=671ef903248a1b1d233e0e01"
           type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -96,7 +108,6 @@
 
   <script src="../js/warehouse-js.js" type="text/javascript"></script>
 
-  <br><br><br><br>
   <jsp:directive.include file="footer.jsp" />
 
   <script>
@@ -155,42 +166,6 @@
       }
     });
 
-    // Khi ấn nút 'Create'
-    document.getElementById("createImportBtn").addEventListener("click", function(event) {
-      const importId = document.getElementById("importId").value;
-      const productsTable = document.getElementById("result");
-
-      // Kiểm tra dữ liệu nhập
-      if (importId === "" || productsTable.rows.length === 0) {
-        alert("Please fill in all required fields and add at least one product.");
-      } else {
-        // Lấy dữ liệu từ bảng và chuyển vào input ẩn
-        let productDataArray = [];
-        for (let i = 0; i < productsTable.rows.length; i++) {
-          const row = productsTable.rows[i];
-          const productId = row.cells[1].textContent;
-          const size = row.cells[3].textContent;
-          const quantity = row.cells[4].textContent;
-          const price = row.cells[5].textContent;
-
-          // Thêm dữ liệu sản phẩm vào mảng dưới dạng JSON
-          productDataArray.push({
-            import_id: importId,
-            product_id: productId,
-            size: size,
-            quantity: quantity,
-            price: price,
-          });
-        }
-
-        // Chuyển mảng dữ liệu sản phẩm thành chuỗi JSON và đặt vào input ẩn
-        document.getElementById("productData").value = JSON.stringify(productDataArray);
-
-        // Gửi form về server
-        document.getElementById("create_import_form").submit();
-      }
-    });
-
   </script>
   <script>
     window.addEventListener("load", () => {
@@ -205,6 +180,138 @@
       }, 500);
     });
   </script>
+
+</body>
+<script>
+  $(document).ready(function () {
+    function getMessageContent(messageId, event) {
+      fetch('csvdata?id=' + messageId)
+              .then(response => response.json())
+              .then(data => {
+                if (data.message) {
+                  let swalOptions = {
+                    title: data.message,
+                    confirmButtonText: "OK"
+                  };
+
+                  // Kiểm tra các loại thông báo
+                  if (messageId === "SUCCESS_CREATE_NEW_IMPORT_RECEIPT") {
+                    swalOptions.icon = "success";  // Biểu tượng success
+                  } else if (messageId === "DUPLICATE_IMPORT_ID") {
+                    swalOptions.icon = "error";  // Biểu tượng error
+                  } else {
+                    swalOptions.icon = "info";   // Biểu tượng mặc định
+                  }
+
+                  // Hiển thị thông báo với Swal
+                  Swal.fire(swalOptions)
+                          .then((result) => {
+                            if (result.isConfirmed) {
+                              // Chuyển hướng hoặc hành động sau khi nhấn OK nếu cần
+                              if (messageId === "SUCCESS_CREATE_NEW_IMPORT_RECEIPT") {
+                                window.location.href = "view_import";
+                              }
+                            }
+                          });
+
+                  event.preventDefault();
+                } else {
+                  Swal.fire("Message not found");
+                  event.preventDefault();
+                }
+              })
+              .catch(error => {
+                getMessageContent("PERSIT_ERROR",event);
+              });
+    }
+
+
+    document.getElementById("createImportBtn").addEventListener("click", function (event){
+      event.preventDefault();
+
+      let importId = $("#importId").val();
+      let totalPriceField = $("#totalPriceField").val();
+      let createdDate = $("#createdDate").val();
+      let staffEmail = $("#staffEmail").val();
+      const specialCharRegex = /[^a-zA-Z0-9\s]/;
+
+      if(importId.trim() === ""){
+        getMessageContent("NOT_NULL_IMPORT_ID", event);
+        $("#importId").focus();
+        return;
+      }
+      else if(specialCharRegex.test(importId)){
+        getMessageContent("NO_ITALIC-CHARACTER_IMPORT_ID", event);
+        $("#import_id").focus();
+        return;
+      }
+
+      const productsTable = document.getElementById("result");
+      let productDataArray = [];
+      for (let i = 0; i < productsTable.rows.length; i++) {
+        const row = productsTable.rows[i];
+        const productId = row.cells[1].textContent;
+        const size = row.cells[3].textContent;
+        const quantity = row.cells[4].textContent;
+        const price = row.cells[5].textContent;
+
+        // Thêm dữ liệu sản phẩm vào mảng dưới dạng JSON
+        productDataArray.push({
+          import_id: importId,
+          product_id: productId,
+          size: size,
+          quantity: quantity,
+          price: price,
+        });
+      }
+
+      // Chuyển mảng dữ liệu sản phẩm thành chuỗi JSON và đặt vào input ẩn
+      document.getElementById("productData").value = JSON.stringify(productDataArray);
+      let productData = $("#productData").val();
+
+      const url = "add_import";
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: {
+          staffEmail,
+          importId,
+          totalPriceField,
+          createdDate,
+          productData
+        },
+        success: function (response){
+          if(response.valid){
+            const message = "SUCCESS_CREATE_NEW_IMPORT_RECEIPT";
+            getMessageContent(message, event);
+          }else{
+            const message1 = "DUPLICATE_IMPORT_ID";
+            getMessageContent(message1, event);
+          }
+        },
+        error: function (){
+          getMessageContent("PERSIT_ERROR",event);
+        }
+      })
+      // this.submit();
+    });
+    $("#customerForm").validate({
+      rules:{
+        importId: "required",
+        totalPriceField: "required",
+        createdDate: "required",
+        productData: "required"
+      },
+      messages:{
+        importId: "",
+        totalPriceField: "",
+        createdDate: "",
+        productData: ""
+      }
+    })
+
+  });
+</script>
 
 </body>
 

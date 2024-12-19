@@ -43,9 +43,6 @@ public class AddShirtToOrderServlet extends HttpServlet {
 		orderDetail.setQuantity(quantity);
 		orderDetail.setSubTotal(subTotal);
 		
-//		float newTotal = order.getOrderSum() + subTotal;
-//		order.setOrderSum(newTotal);
-		
 		boolean isShirtInOrder = false;
 		Set<OrderDetail>orderDetails = order.getOrderDetails();
 		

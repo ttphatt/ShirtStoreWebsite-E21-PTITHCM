@@ -29,6 +29,7 @@ public class OSRMAPI {
         JSONObject route = jsonResponse.getJSONArray("routes").getJSONObject(0);
         double distance = route.getDouble("distance");
 
-        return distance / 1000;
+        // Làm tròn đến 2 chữ số sau dấu phẩy và trả về
+        return Math.round((distance / 1000) * 100.0) / 100.0;
     }
 }

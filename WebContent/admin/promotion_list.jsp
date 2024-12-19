@@ -10,6 +10,11 @@
     <jsp:include page="pageLoad.jsp"/>
     <link href="../css/temp.css" rel="stylesheet" type="text/css" />
 
+    <link rel="stylesheet" type="text/css" href="../css/custom_background_template.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/custom_row_template.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/table_list_admin_template.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/search_button_template.css"/>
+
     <style>
         .toggle-switch {
             display: inline-block;
@@ -57,84 +62,95 @@
 </head>
 <body>
 <jsp:directive.include file="header.jsp"/>
-<br><br><br><br>
 
-<div align="center">
-    <h1>Promotion Management</h1>
-    <hr width="70%">
-    <h3><a href="promotion_form.jsp" class="btn btn-outline-primary btn-lg">Create new Promotion</a></h3>
-</div>
-
-<br>
-
-<c:if test="${message != null}">
-    <c:choose>
-        <c:when test="${message.contains('successfully')}">
-            <div align="center" class="alert alert-info" role="alert">
-                <h4>${message}</h4>
+    <div class="background-div-content">
+        <div class="container mb-5 mt-5">
+            <div class="row justify-content-center">
+                <div class="row custom-row text-center" style="width: fit-content">
+                    <h1>Promotion Management</h1>
+                </div>
             </div>
-        </c:when>
-        <c:otherwise>
-            <div align="center" class="alert alert-danger" role="alert">
-                <h4>${message}</h4>
+
+            <div class="row justify-content-center text-center mt-5">
+                <h3><a href="promotion_form" class="btn custom-btn-cart fs-4">Create new Promotion</a></h3>
             </div>
-        </c:otherwise>
-    </c:choose>
-</c:if>
 
-<br>
+            <br>
 
-<div align="center">
-    <table  class="table table-bordered" style="width: 500px">
-        <thead class="table-dark">
-        <tr>
-            <th class="align-middle justify-content-center text-center">Index</th>
-            <th class="align-middle justify-content-center text-center">Promotion</th>
-            <th class="align-middle justify-content-center text-center">Code</th>
-            <th class="align-middle justify-content-center text-center">Type</th>
-            <th class="align-middle justify-content-center text-center">Showing on customer page</th>
-            <th class="align-middle justify-content-center text-center">State</th>
-            <th class="align-middle justify-content-center text-center">In use</th>
-            <th class="align-middle justify-content-center text-center">Start Date</th>
-            <th class="align-middle justify-content-center text-center">End Date</th>
-            <th class="align-middle justify-content-center text-center">Actions</th>
-        </tr>
-        </thead>
+            <c:if test="${message != null}">
+                <c:choose>
+                    <c:when test="${message.contains('successfully')}">
+                        <div align="center" class="alert alert-info" role="alert">
+                            <h4>${message}</h4>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div align="center" class="alert alert-danger" role="alert">
+                            <h4>${message}</h4>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </c:if>
 
-        <tbody id="tableBody">
-        <c:forEach var="promotion" items="${listPromotion}" varStatus="status">
-            <tr>
-                <td class="align-middle justify-content-center text-center">${status.index + 1}</td>
-                <td class="align-middle justify-content-center text-center">${promotion.description}</td>
-                <td class="align-middle justify-content-center text-center">${promotion.promotionId}</td>
-                <td class="align-middle justify-content-center text-center">${promotion.type}</td>
-                <td class="align-middle justify-content-center text-center">
-                    <div class="toggle-switch">
-                        <input ${promotion.doDisplay ? 'checked' : ''} class="toggle-input" value="${promotion.promotionId}" id="toggle${status.index}" type="checkbox" onclick="togglePromotionCode(${status.index})"/>
-                        <label class="toggle-label" for="toggle${status.index}"></label>
-<%--                            <input class="toggle-input" id="toggle${status.index}" type="checkbox" />--%>
-<%--                            <label class="toggle-label" for="toggle${status.index}"></label>--%>
-                    </div>
-                </td>
-                <td class="align-middle justify-content-center text-center">${promotion.status}</td>
-                <td class="align-middle justify-content-center text-center">${promotion.usedPromotion}/${promotion.quantityInStock}</td>
-                <td class="align-middle justify-content-center text-center"><f:formatDate pattern='dd/MM/yyyy' value='${promotion.startDate}'/></td>
-                <td class="align-middle justify-content-center text-center"><f:formatDate pattern='dd/MM/yyyy' value='${promotion.endDate}'/></td>
-                <td class="align-middle justify-content-center text-center">
-                    <a href="edit_promotion?promotionId=${promotion.promotionId}" class="btn btn-outline-primary">Edit</a>
-                </td>
-            </tr>
-        </c:forEach>
-        </tbody>
-    </table>
-</div>
+            <br>
 
-<div align="center">
-    <div class="pagination-wrapper">
-        <a href="#" class="paginationButton is-medium-button w-button" id="prevPage" >Previous</a>
-        <a href="#" class="paginationButton is-medium-button w-button" id="nextPage" >Next</a>
+            <div class="row justify-content-center">
+                <table  class="table table-striped table-bordered table-hover table-list-admin-custom" style="width: 500px">
+                    <thead class="table-dark">
+                    <tr>
+                        <th class="align-middle justify-content-center text-center">Index</th>
+                        <th class="align-middle justify-content-center text-center">Promotion</th>
+                        <th class="align-middle justify-content-center text-center">Code</th>
+                        <th class="align-middle justify-content-center text-center">Type</th>
+                        <th class="align-middle justify-content-center text-center">Showing on customer page</th>
+                        <th class="align-middle justify-content-center text-center">State</th>
+                        <th class="align-middle justify-content-center text-center">In use</th>
+                        <th class="align-middle justify-content-center text-center">Start Date</th>
+                        <th class="align-middle justify-content-center text-center">End Date</th>
+                        <th class="align-middle justify-content-center text-center">Actions</th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="tableBody">
+                    <c:forEach var="promotion" items="${listPromotion}" varStatus="status">
+                        <tr>
+                            <td class="align-middle justify-content-center text-center">${status.index + 1}</td>
+                            <td class="align-middle justify-content-center text-center">${promotion.description}</td>
+                            <td class="align-middle justify-content-center text-center">${promotion.promotionId}</td>
+                            <td class="align-middle justify-content-center text-center">${promotion.type}</td>
+                            <td class="align-middle justify-content-center text-center">
+                                <div class="toggle-switch">
+                                    <input ${promotion.doDisplay ? 'checked' : ''} class="toggle-input" value="${promotion.promotionId}" id="toggle${status.index}" type="checkbox" onclick="togglePromotionCode(${status.index})"/>
+                                    <label class="toggle-label" for="toggle${status.index}"></label>
+                                        <%--                            <input class="toggle-input" id="toggle${status.index}" type="checkbox" />--%>
+                                        <%--                            <label class="toggle-label" for="toggle${status.index}"></label>--%>
+                                </div>
+                            </td>
+                            <td class="align-middle justify-content-center text-center">${promotion.status}</td>
+                            <td class="align-middle justify-content-center text-center">${promotion.usedPromotion}/${promotion.quantityInStock}</td>
+                            <td class="align-middle justify-content-center text-center"><f:formatDate pattern='dd/MM/yyyy' value='${promotion.startDate}'/></td>
+                            <td class="align-middle justify-content-center text-center"><f:formatDate pattern='dd/MM/yyyy' value='${promotion.endDate}'/></td>
+                            <td class="align-middle justify-content-center text-center">
+                                <a href="edit_promotion?promotionId=${promotion.promotionId}" class="btn custom-btn-details">Edit</a>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="pagination-wrapper">
+                    <a href="#" class="paginationButton is-medium-button w-button" id="prevPage" >Previous</a>
+                    <a href="#" class="paginationButton is-medium-button w-button" id="nextPage" >Next</a>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-</div>
+
+
 
 <script>
     let curPage = 1
@@ -177,7 +193,6 @@
     }
 </script>
 
-<br><br><br><br>
 <jsp:directive.include file="footer.jsp"/>
 <script>
     $(document).ready(function (){

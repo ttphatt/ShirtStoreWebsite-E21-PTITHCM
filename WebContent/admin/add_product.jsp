@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <body class="body">
 <div id="productModal" class="modal">
@@ -8,7 +9,7 @@
         </div>
 
         <div class="form-wrapper is_add_form w-form">
-            <form id="email-form" name="email-form" method="get" class="form" action="#">
+            <form id="addProductForm" name="addProductForm-form" method="get" class="form" action="#">
                 <!-- Product Select -->
                 <div class="fields-wrapper is_contain_combobox">
                     <label for="productSelect" class="field-label">Product's Name</label>
@@ -53,7 +54,7 @@
 
         <!-- Buttons for Add and Cancel -->
         <div class="form_button">
-            <a href="#" class="button is-medium-button w-button" id="addProductBtn">Add</a>
+            <a href="#" type="submit" class="button is-medium-button w-button" id="addProductBtn">Add</a>
             <a href="#" class="button is-medium-button is-red w-button close">Cancel</a>
         </div>
     </div>
@@ -67,25 +68,10 @@
     const priceField = document.getElementById("price");
     let counter = 1;
 
-    // Update product ID when a product is selected
-    productSelect.addEventListener("change", function() {
-        const selectedProductId = productSelect.value;
-        productIdField.value = selectedProductId;
-    });
-
     // When 'Add' button is clicked
-    document.getElementById("addProductBtn").addEventListener("click", function() {
+    function addProductToTable(size, productId, quantity, price) {
         // Get form values
         let productName = productSelect.options[productSelect.selectedIndex].text;
-        let size = sizeSelect.value;
-        let productId = productIdField.value;
-        let quantity = quantityField.value;
-        let price = priceField.value;
-
-        if (!productId || isNaN(parseInt(quantity)) || isNaN(parseInt(price)) || size === "") {
-            alert("Please fill out valid information.");
-            return;
-        }
 
         const total = (quantity * price).toString();
 
@@ -176,7 +162,7 @@
         productIdField.value = "";
         quantityField.value = "";
         priceField.value = "";
-    });
+    }
 
     // Function to update total price
     function updateTotalPrice(newTotal) {
@@ -185,5 +171,136 @@
         currentTotal += parseFloat(newTotal);
         totalPriceField.value = currentTotal.toFixed(2);
     }
+</script>
+<script>
+    $(document).ready(function () {
+        function getMessageContent(messageId, event) {
+            fetch('csvdata?id=' + messageId)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        let swalOptions = {
+                            title: data.message,
+                            confirmButtonText: "OK"
+                        };
+
+                        // Kiểm tra các loại thông báo
+                        if (messageId === "SUCCESS_CREATE_NEW_CUSTOMER" || messageId === "SUCCESS_UPDATE_CUSTOMER") {
+                            swalOptions.icon = "success";  // Biểu tượng success
+                        } else if (messageId === "DUPLICATE_CUSTOMER_EMAIL" || messageId === "FAIL_UPDATE_CUSTOMER") {
+                            swalOptions.icon = "error";  // Biểu tượng error
+                        } else {
+                            swalOptions.icon = "info";   // Biểu tượng mặc định
+                        }
+
+                        // Hiển thị thông báo với Swal
+                        Swal.fire(swalOptions)
+                            .then((result) => {
+                                if (result.isConfirmed) {
+                                    // Chuyển hướng hoặc hành động sau khi nhấn OK nếu cần
+                                    if (messageId === "SUCCESS_CREATE_NEW_CUSTOMER" || messageId === "SUCCESS_UPDATE_CUSTOMER") {
+                                        window.location.href = "list_customer";
+                                    }
+                                }
+                            });
+
+                        event.preventDefault();
+                    } else {
+                        Swal.fire("Message not found");
+                        event.preventDefault();
+                    }
+                })
+                .catch(error => {
+                    console.error("Error: ", error);
+                });
+        }
+
+        $("#productSelect").change(function() {
+            const selectedProductId = $(this).val();
+            $("#productId").val(selectedProductId);
+        });
+
+
+        document.getElementById("addProductBtn").addEventListener("click", function (event){
+            event.preventDefault();
+
+            let size = document.getElementById("sizeSelect").value;
+            let productId = $("#productId").val();
+            let quantity = $("#quantity").val();
+            let price = $("#price").val();
+            const specialCharRegex = /[^a-zA-Z0-9\s]/;
+            const onlyNumbersRegex = /^[0-9]+$/;
+
+            if(!productId){
+                getMessageContent("NOT_NULL_IMPORT_PRODUCT_ID", event);
+                $("#productSelect").focus();
+                return;
+            }
+            else if(size === ""){
+                getMessageContent("NOT_NULL_IMPORT_SIZE", event);
+                $("#sizeSelect").focus();
+                return;
+            }
+            else if(quantity.trim() === ""){
+                getMessageContent("NOT_NULL_IMPORT_QUANTITY", event);
+                $("#quantity").focus();
+                return;
+            }
+            else if(specialCharRegex.test(quantity)){
+                getMessageContent("NO_ITALIC-CHARACTER_IMPORT_QUANTITY", event);
+                $("#quantity").focus();
+                return;
+            }
+            else if (!onlyNumbersRegex.test(quantity)) {
+                getMessageContent("ONLY_NUMBER_IMPORT_QUANTITY", event);
+                $("#quantity").focus();
+                return;
+            }
+            else if(Number(quantity) <= 0){
+                getMessageContent("IMPORT_QUANTITY_MUST_BE_POSITIVE", event);
+                $("#quantity").focus();
+                return;
+            }
+            else if(price.trim() === ""){
+                getMessageContent("NOT_NULL_IMPORT_PRICE", event);
+                $("#price").focus();
+                return;
+            }
+            else if(specialCharRegex.test(price)){
+                getMessageContent("NO_ITALIC-CHARACTER_IMPORT_PRICE", event);
+                $("#price").focus();
+                return;
+            }
+            else if (!onlyNumbersRegex.test(price)) {
+                getMessageContent("ONLY_NUMBER_IMPORT_PRICE", event);
+                $("#price").focus();
+                return;
+            }
+            else if(Number(price) <= 0){
+                getMessageContent("IMPORT_PRICE_MUST_BE_POSITIVE", event);
+                $("#price").focus();
+                return;
+            }
+
+            addProductToTable(size, productId, quantity, price);
+
+            this.submit();
+        });
+        $("#addProductForm").validate({
+            rules:{
+                productId: "required",
+                size: "required",
+                quantity: "required",
+                price: "required"
+            },
+            messages:{
+                size: "",
+                productId: "",
+                quantity: "",
+                price: ""
+            }
+        })
+
+    });
 </script>
 </body>

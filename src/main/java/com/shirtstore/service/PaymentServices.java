@@ -150,7 +150,7 @@ public class PaymentServices {
 		Amount amount = new Amount();
 		amount.setCurrency("USD");
 		amount.setDetails(details);
-		amount.setTotal(String.format(Locale.US, "%.1f", order.getOrderSum()));
+		amount.setTotal(String.format(Locale.US, "%.2f", order.getOrderSum()));
 		
 		return amount;
 	}

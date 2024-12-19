@@ -1,12 +1,16 @@
 package com.shirtstore.service;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -81,7 +85,21 @@ public class CustomerServices {
 
 	}
 
-	private void updateCustomerFieldsFromForm(Customer customer) {
+	public String removeAccents(String input) {
+		if (input == null) return null;
+
+		// Chuyển đổi chuỗi về dạng chuẩn Unicode (Normalization Form KD)
+		String nfd = Normalizer.normalize(input, Normalizer.Form.NFD);
+
+		// Loại bỏ các ký tự dấu
+		String result = nfd.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
+
+		return result;
+	}
+
+
+	private void updateCustomerFieldsFromForm(Customer customer) throws IOException {
+		request.setCharacterEncoding("UTF-8");
 		String email = request.getParameter("email");
 		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
@@ -94,11 +112,15 @@ public class CustomerServices {
 		String zip = request.getParameter("zip");
 		String country = request.getParameter("country");
 
+		System.out.println(addressLine1);
+		System.out.println(addressLine2);
+
+		System.out.println(removeAccents(addressLine1));
+		System.out.println(removeAccents(addressLine2));
 
 		if (email != null && !email.equals("")) {
 			customer.setEmail(email);
 		}
-
 
 		customer.setFirstname(firstname);
 		customer.setLastname(lastname);
@@ -116,7 +138,7 @@ public class CustomerServices {
 		customer.setZipcode(zip);
 		customer.setCountry(country);
 
-		sendEmailToCustomer(email, firstname + " " + lastname);
+//		sendEmailToCustomer(email, firstname + " " + lastname);
 	}
 
 	public void editCustomer() throws ServletException, IOException {
@@ -213,7 +235,6 @@ public class CustomerServices {
 		String message = "";
 		Customer existCustomer = customerDAO.findByEmail(email);
 
-
 		if (existCustomer != null) {
 			message = "Could not sign up. The email: " + email + " is already registered by another customer";
 		} else {
@@ -223,7 +244,12 @@ public class CustomerServices {
 			message = "You have signed up successfully.\n" + "<a href='login'>Click here</a> to login";
 		}
 
+//
+//		Customer newCustomer = new Customer();
+//		updateCustomerFieldsFromForm(newCustomer);
+//		customerDAO.create(newCustomer);
 
+		//Modified here
 		String path = "frontend/message.jsp";
 		request.setAttribute("message", message);
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(path);
@@ -247,19 +273,10 @@ public class CustomerServices {
 		Customer customer = customerDAO.checkLogin(email, passwordHash);
 
 		if (customer != null) {
-			HttpSession session = request.getSession();
 			request.getSession().setAttribute("loggedCustomer", customer);
-			Object objRedirectURL = session.getAttribute("redirectURL");
 
-			cartService.saveCart(customer.getCustomerId());
-
-			if (objRedirectURL != null) {
-				String redirectURL = (String) objRedirectURL;
-				session.removeAttribute("redirectURL");
-				response.sendRedirect(redirectURL);
-			} else {
-				showCustomerProfile();
-			}
+			request.setAttribute("customerId", customer.getCustomerId());
+			request.getRequestDispatcher("frontend/confirmSaveCart.jsp").forward(request, response);
 		} else {
 			message = "Login failed. Please check your email and password again";
 			request.setAttribute("message", message);
@@ -380,8 +397,8 @@ public class CustomerServices {
 					session.setAttribute("loggedCustomer", existingCustomer);
 
 					// Chép cart mới của khách hàng.
-					cartService.saveCart(existingCustomer.getCustomerId());
-					showCustomerProfile();
+					request.setAttribute("customerId", existingCustomer.getCustomerId());
+					request.getRequestDispatcher("frontend/confirmSaveCart.jsp").forward(request, response);
 				}
 			}
 		} catch (IOException e) {
@@ -413,8 +430,8 @@ public class CustomerServices {
 					session.setAttribute("loggedCustomer", existingCustomer);
 
 					// Chép cart mới của khách hàng.
-					cartService.saveCart(existingCustomer.getCustomerId());
-					showCustomerProfile();
+					request.setAttribute("customerId", existingCustomer.getCustomerId());
+					request.getRequestDispatcher("frontend/confirmSaveCart.jsp").forward(request, response);
 				}
 			}
 		} catch (IOException e) {

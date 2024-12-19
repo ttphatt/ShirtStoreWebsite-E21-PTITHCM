@@ -31,7 +31,6 @@ public class RemoveShirtFromCartServlet extends HttpServlet {
 		
 		ShoppingCart shoppingCart = (ShoppingCart)cartObject;
 		
-		
 		shoppingCart.removeItem(shirtId,size);
 
 		Customer customer = (Customer)request.getSession().getAttribute("loggedCustomer");

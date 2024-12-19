@@ -35,13 +35,6 @@ public class AdminLoginFilter extends HttpServlet implements Filter {
 		boolean loggedIn = session != null && session.getAttribute("userEmail") != null;
 		String loginURI = httpRequest.getContextPath() + "/admin/login";
 		
-		
-		System.out.println(session != null);
-		System.out.println(session.getAttribute("userEmail") != null);
-		System.out.println("First string: " + loggedIn);
-		System.out.println("Second string: " + loginURI);
-		System.out.println("Third string: " + httpRequest.getRequestURI());
-		
 		boolean loginRequest = httpRequest.getRequestURI().equals(loginURI);
 		boolean loginPage = httpRequest.getRequestURI().endsWith("login.jsp");
 		
@@ -49,18 +42,15 @@ public class AdminLoginFilter extends HttpServlet implements Filter {
 		if(loggedIn && (loginRequest || loginPage)) {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/");
 			requestDispatcher.forward(request, response);
-			System.out.println("Reach 1");
 		}
 		
 		else if(loggedIn || loginRequest) {
 			chain.doFilter(request, response);
-			System.out.println("Reach 2");
 		}
 		//User chưa đang nhập thì điều hướng sang trang login
 		else {
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/admin/login.jsp");
 			requestDispatcher.forward(request, response);
-			System.out.println("Reach 3");
 		}
 	}
 

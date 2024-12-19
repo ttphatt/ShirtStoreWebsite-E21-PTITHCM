@@ -45,6 +45,8 @@ public class AddShirtToCartServlet extends HttpServlet {
 		
 		shoppingCart.addItem(shirt, size);
 		Customer customer = (Customer) request.getSession().getAttribute("loggedCustomer");
+
+		// Khách hàng đã đăng nhập
 		if(customer != null) {
 			new CartService(request).saveCart(customer.getCustomerId());
 		}

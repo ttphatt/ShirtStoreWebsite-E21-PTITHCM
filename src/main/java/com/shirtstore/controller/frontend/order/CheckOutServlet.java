@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shirtstore.entity.Customer;
 import com.shirtstore.service.OrderServices;
 
 @WebServlet("/checkout")
@@ -21,7 +22,8 @@ public class CheckOutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderServices orderService = new OrderServices(request, response);
-		orderService.showCheckOutForm();
+		Customer customer = (Customer) request.getSession().getAttribute("loggedCustomer");
+		orderService.showCheckOutForm(customer);
 	}
 
 }

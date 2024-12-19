@@ -57,7 +57,7 @@ public class ShirtDAO extends JPADAO<Shirt> implements GenericDAO<Shirt> {
 	}
 	
 	public List<Shirt> listNewShirts(){
-		return super.findWithNamedQuery("Shirt.findNew", 0, 6);
+		return super.findWithNamedQuery("Shirt.findNew", 0, 3);
 	}
 	
 	public List<Shirt>search(String keyword){

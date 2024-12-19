@@ -2283,6 +2283,8 @@ textarea.w-input, textarea.w-select {
     margin-top: 60px;
     margin-bottom: 100px;
     display: block;
+    background: #FFFFFF;
+    width: auto;
 }
 
 .body-2 {
@@ -2291,6 +2293,7 @@ textarea.w-input, textarea.w-select {
 
 .form-wrapper {
     width: 940px;
+    background: #FFFFFF;
 }
 
 .form-wrapper.is_add_form {
@@ -2299,7 +2302,8 @@ textarea.w-input, textarea.w-select {
 }
 
 .form {
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
+    border: 1px solid transparent;
 }
 
 .fields-wrapper {

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -16,9 +16,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/custom_background_template.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom_row_template.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom_border_template.css"/>
+
     <style>
         body {
-            padding-top: 70px;
+            padding-top: 0;
         }
         .img-fluid {
             max-height: 240px;
@@ -27,12 +31,14 @@
     </style>
 </head>
 <body>
-    <jsp:directive.include file="header.jsp"/>
-    <div class="container mt-5">
+<jsp:directive.include file="header.jsp"/>
+
+<div class="background-div-content">
+    <div class="container mt-5 mb-5">
         <div class="row justify-content-center text-center">
             <form id="rateForm" action="update_rate" method="post" class="col-lg-8">
                 <input type="hidden" name="rateId" value="${rate.rateId}">
-                <div class="card">
+                <div class="card border custom-border">
                     <div class="card-body">
                         <h2 class="text-start">You already wrote the rate for this shirt</h2>
                         <hr>
@@ -52,8 +58,8 @@
                             </div>
 
                             <div class="d-flex justify-content-end mt-4">
-                                <a href="#" class="deleteLink btn btn-outline-primary" id="${rate.rateId}">Delete</a>&nbsp;&nbsp;
-                                <button id="submit" type="submit" class="btn btn-outline-success me-2">Update</button>
+                                <a href="#" class="deleteLink btn custom-btn-delete" id="${rate.rateId}">Delete</a>&nbsp;&nbsp;
+                                <button id="submit" type="submit" class="btn custom-btn-update me-2">Update</button>
                             </div>
                         </div>
                     </div>
@@ -61,8 +67,9 @@
             </form>
         </div>
     </div>
-    
-    <jsp:directive.include file="footer.jsp"/>
+</div>
+
+<jsp:directive.include file="footer.jsp"/>
 </body>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -95,7 +102,16 @@
                 .then(response => response.json())
                 .then(data =>{
                     if(data.message){
-                        Swal.fire(data.message);
+                        Swal.fire({
+                            title: data.message,
+                            icon: "info",
+                            html: `
+                        <p>${data.message}</p>
+                    `,
+                            showCloseButton: true,
+                            confirmButtonText: "OK",
+                            focusConfirm: false
+                        });
                         event.preventDefault();
                     }
                     else{

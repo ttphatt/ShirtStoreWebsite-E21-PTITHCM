@@ -38,8 +38,6 @@ public class RemoveShirtFromOrderServlet extends HttpServlet {
 			OrderDetail orderDetail = iterator.next();
 			
 			if(orderDetail.getShirt().getShirtId() == shirtId) {
-//				float newSum = order.getOrderSum() - orderDetail.getSubTotal();
-//				order.setOrderSum(newSum);
 				iterator.remove();
 			}
 		}

@@ -1,6 +1,8 @@
 package com.shirtstore.service;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -44,6 +46,8 @@ public class OrderServices {
 
 		//Check promotion
 		for(ShirtOrder order : listOrders){
+			totalDiscount = 0;
+			orderSum = 0;
 			List<OrderPromotion> orderPromotions = orderPromotionDAO.getOrderPromotions(order.getOrderId());
 			if(!orderPromotions.isEmpty()){
 				for(OrderPromotion orderPromotion : orderPromotions){
@@ -79,7 +83,7 @@ public class OrderServices {
 		requestDispatcher.forward(request, response);
 	}
 
-	public void showCheckOutForm() throws ServletException, IOException {
+	public void showCheckOutForm(Customer customer) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("cart");
 		PromotionDAO promotionDAO = new PromotionDAO();
@@ -93,7 +97,6 @@ public class OrderServices {
 		//Tax = Subtotal * 10%
 		float tax = shoppingCart.getTotalAmount() * 0.1f;
 		// shipping fee
-		Customer customer = (Customer) session.getAttribute("loggedCustomer");
 		String startAddress = "11, Duong Nguyen Dinh Chieu, Phuong Da Kao, Quan 1, Thanh Pho Ho Chi Minh, Viet Nam";
 		String endAddress = customer.getAddressLine1() + ", " + customer.getState() + ", " + customer.getCity() + ", " + customer.getCountry();
 
@@ -105,7 +108,7 @@ public class OrderServices {
 			e.printStackTrace();
 		}
 
-		float shippingFee = 0.0f;
+		float shippingFee = 0;
 
 		if(distance <= 1000){
 			//Shipping fee
@@ -115,7 +118,23 @@ public class OrderServices {
 			shippingFee = (float) calculateInternationalShippingFee(distance);
 		}
 
-		float totalPrice = shoppingCart.getTotalAmount() + tax + shippingFee;
+		DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+		DecimalFormat df = new DecimalFormat("#.0", symbols);
+
+		float formattedShippingFee = Float.parseFloat(df.format(shippingFee));
+
+		float totalPrice = shoppingCart.getTotalAmount() + tax + formattedShippingFee;
+//		System.out.println("Shipping fee 1: " + shippingFee);
+//		System.out.println("Shopping cart: " + shoppingCart.getTotalAmount());
+//		System.out.println("Tax: " + tax);
+//		System.out.println("Total price: " + totalPrice);
+
+		//Modified here
+//		session.setAttribute("customer", customer);
+
+		request.setAttribute("customer", customer);
+
+		//
 
 		session.setAttribute("orderDiscount", null);
 		session.setAttribute("orderPromotionId", null);
@@ -123,8 +142,12 @@ public class OrderServices {
 		session.setAttribute("shippingPromotionId", null);
 
 		session.setAttribute("tax", tax);
-		session.setAttribute("shippingFee", shippingFee);
+		session.removeAttribute("shippingFee");
+		session.setAttribute("shippingFee", formattedShippingFee);
 		session.setAttribute("totalPrice", totalPrice);
+
+		System.out.println("Shipping fee 2: " + formattedShippingFee);
+
 
 		CommonUtility.generateCountriesList(request);
 		String path = "frontend/checkout.jsp";
@@ -188,7 +211,32 @@ public class OrderServices {
 			placeOrderCOD(order);
 		}
 	}
-	
+
+	public Customer getAddressForm(){
+		Customer customer = new Customer();
+		String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter("lastname");
+		String phoneNumber = request.getParameter("phoneNumber");
+		String addressLine1 = request.getParameter("addressLine1");
+		String addressLine2 = request.getParameter("addressLine2");
+		String city = request.getParameter("city");
+		String state = request.getParameter("state");
+		String zip = request.getParameter("zip");
+		String country = request.getParameter("country");
+
+		customer.setFirstname(firstname);
+		customer.setLastname(lastname);
+		customer.setPhoneNumber(phoneNumber);
+		customer.setAddressLine1(addressLine1);
+		customer.setAddressLine2(addressLine2);
+		customer.setCity(city);
+		customer.setState(state);
+		customer.setZipcode(zip);
+		customer.setCountry(country);
+
+		return customer;
+	}
+
 	private void sendEmailToCustomer(int orderId){
 		//lấy email hiện tại ra
         HttpSession session = request.getSession();
@@ -328,21 +376,12 @@ public class OrderServices {
 			orderDetails.add(orderDetail);
 		}
 
-		System.out.println("-----------------------------");
-		for(OrderDetail orderDetail : orderDetails){
-			System.out.println(orderDetail.getShirt().getShirtId());
-			System.out.println(orderDetail.getSize());
-		}
-
+		
 		order.setOrderDetails(orderDetails);
 
 		float tax = (float) session.getAttribute("tax");
 		float shippingFee = (float) session.getAttribute("shippingFee");
 		float total = (float) session.getAttribute("totalPrice");
-
-		System.out.println("Tax: " + tax);
-		System.out.println("Shipping fee: " + shippingFee);
-		System.out.println("Total price: " + total);
 
 		order.setSubtotal(shoppingCart.getTotalAmount());
 		order.setTax(tax);
@@ -351,15 +390,15 @@ public class OrderServices {
 
 		Set<OrderPromotion> orderPromotions = new HashSet<OrderPromotion>();
 		PromotionDAO promotionDAO = new PromotionDAO();
-		String idPromotion = (String) request.getSession().getAttribute("orderPromotionId");
+		String orderPromotionId = (String) request.getSession().getAttribute("orderPromotionId");
 		String shippingPromotionId = (String) request.getSession().getAttribute("shippingPromotionId");
-		System.out.println(idPromotion);
+		System.out.println(orderPromotionId);
 		System.out.println(shippingPromotionId);
 
-		if(idPromotion != null) {
+		if(orderPromotionId != null) {
 			System.out.println("In id promotion");
 			OrderPromotion orderPromotion = new OrderPromotion();
-			Promotion promotion = promotionDAO.get(idPromotion);
+			Promotion promotion = promotionDAO.get(orderPromotionId);
 
 			orderPromotion.setShirtOrder(order);
 			orderPromotion.setPromotion(promotion);
@@ -660,8 +699,14 @@ public class OrderServices {
 		order.setStatus(status);
 		orderDAO.update(order);
 
-		for(OrderDetail orderDetail : order.getOrderDetails()) {
-			new JPADAO<>().updateSize(orderDetail.getShirt().getShirtId(), orderDetail.getSize(), orderDetail.getQuantity());
+		if (status.equals("Returned")) {
+			for(OrderDetail orderDetail : order.getOrderDetails()) {
+				new JPADAO<>().updateSize(orderDetail.getShirt().getShirtId(), orderDetail.getSize(), orderDetail.getQuantity());
+			}
+		}
+
+		if (status.equals("Completed")) {
+			new JPADAO<>().update_profits(orderId);
 		}
 
 		request.setAttribute("message", message);

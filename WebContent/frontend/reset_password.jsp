@@ -15,6 +15,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/pageLoad.css">
+    <link rel="stylesheet" type="text/css" href="css/custom_background_template.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom_row_template.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom_border_template.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
         .error {
             color: red;
@@ -22,48 +28,96 @@
         }
     </style>
 
-    <style>
-        body {
-            padding-top: 70px;
-        }
-        .form-container {
-            max-width: 600px;
-            margin: auto;
-        }
-        .form-heading {
-            margin-bottom: 30px;
-        }
-    </style>
+<%--    <style>--%>
+<%--        body {--%>
+<%--            padding-top: 0;--%>
+<%--        }--%>
+<%--        .form-container {--%>
+<%--            max-width: 600px;--%>
+<%--            margin: auto;--%>
+<%--        }--%>
+<%--        .form-heading {--%>
+<%--            margin-bottom: 30px;--%>
+<%--        }--%>
+<%--    </style>--%>
 </head>
 <body>
 <jsp:directive.include file="header.jsp" />
 
-<div align="center">
-    <h2>Reset Your Password</h2>
-    <p>
-        Please enter your login email, we'll send a new random password to your inbox:
-    </p>
+<div class="background-div-content">
+    <div class="container mb-5 mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-auto text-center border custom-border">
+                <h2>Reset Your Password</h2>
+                <p>
+                    Please enter your login email, we'll send a new random password to your inbox:
+                </p>
 
-    <form id="resetForm" action="reset_password" method="post">
-        <table>
-            <tr>
-                <td>Email:</td>
-                <td><input type="text" name="email" id="email" size="20"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <button type="submit">Send me new password</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+                <div class="row justify-content-center">
+                    <div class="col-md-auto text-center justify-content-center">
+                        <form id="resetForm" action="reset_password" method="post">
+                            <table>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td><input type="text" name="email" id="email" size="20"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <button type="submit" class="mt-4 btn custom-btn-submit fs-5">Send me new password</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<br><br><br><br><br>
+
 <jsp:directive.include file="footer.jsp" />
 
 <script type="text/javascript">
 
     $(document).ready(function() {
+        function getMessageContent(messageId, event){
+            fetch('csvdata?id=' + messageId)
+                .then(response => response.json())
+                .then(data =>{
+                    if(data.message){
+                        Swal.fire({
+                            title: data.message,
+                            icon: "info",
+                            html: `
+                        <p>${data.message}</p>
+                    `,
+                            showCloseButton: true,
+                            confirmButtonText: "OK",
+                            focusConfirm: false
+                        });
+                        event.preventDefault();
+                    }
+                    else{
+                        Swal.fire("Message not found");
+                        event.preventDefault();
+                    }
+                })
+                .catch(error => console.error("Error: ", error));
+        }
+
+        $("#resetForm").submit(function (event){
+           var email = $("#email").val();
+           var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+           if(email.trim() === ""){
+               getMessageContent("NOT_NULL_EMAIL", event);
+           }
+           else if(!emailRegex.test(email)){
+               getMessageContent("INVALID_EMAIL_ADDRESS", event);
+               event.preventDefault();
+           }
+        });
+
         $("#resetForm").validate({
             rules: {
                 email: {
@@ -74,8 +128,8 @@
 
             messages: {
                 email: {
-                    required: "Please enter email",
-                    email: "Please enter a valid email address"
+                    required: "",
+                    email: ""
                 }
             }
         });

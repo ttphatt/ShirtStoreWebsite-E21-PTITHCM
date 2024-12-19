@@ -14,18 +14,18 @@ $(document).ready(function(){
 					required: true,
 				},
 				
-				password:{
-					required: true,
-				},
+				// password:{
+				// 	required: false,
+				// },
 				
 				phone:{
 					required: true,
 					number: true,	
 				},
 				
-				confirmPassword:{
-					equalTo: "#password",
-				},
+				// confirmPassword:{
+				// 	equalTo: "#password",
+				// },
 				
 				address1:{
 					required: true,
@@ -61,10 +61,10 @@ $(document).ready(function(){
 				lastname:{
 					required: "Please enter your last name",
 				},
-				
-				password:{
-					required: "Please enter your password",
-				},
+				//
+				// password:{
+				// 	required: "Please enter your password",
+				// },
 				
 				phone:{
 					number: "Phone must contain only number",	

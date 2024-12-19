@@ -1,6 +1,7 @@
 package com.shirtstore.controller.admin.type;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +17,25 @@ public class CreateTypeServlet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TypeServices typeService = new TypeServices(request, response);
-		
-		typeService.createType();
+		TypeServices typeServices = new TypeServices(request, response);
+
+		String typeName = request.getParameter("typeName");
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+
+		PrintWriter out = response.getWriter();
+
+		if(typeServices.checkDuplicateType(typeName) == null){
+			out.print("{\"valid\": " + true + "}");
+			typeServices.createType();
+		}
+		else{
+			out.print("{\"valid\": " + false + "}");
+		}
+
+		out.flush();
+		out.close();
 	}
 
 }

@@ -32,6 +32,8 @@ import javax.persistence.Transient;
 @NamedQueries({
 	@NamedQuery(name = "ShirtOrder.listAll", query = "SELECT so FROM ShirtOrder so ORDER BY so.orderDate DESC"),
 	@NamedQuery(name = "ShirtOrder.countAll", query = "SELECT COUNT(*) FROM ShirtOrder"),
+	@NamedQuery(name = "ShirtOrder.countByTime", query = "SELECT COUNT(*) FROM ShirtOrder WHERE orderDate between :start_date and :end_date"),
+		@NamedQuery(name = "ShirtOrder.sumDiscountByTime", query = "SELECT COUNT(*) FROM ShirtOrder WHERE orderDate between :start_date and :end_date"),
 	@NamedQuery(name = "ShirtOrder.findByCustomer", query = "SELECT so FROM ShirtOrder so WHERE so.customer.customerId = :customerId ORDER BY so.orderDate DESC"),
 	@NamedQuery(name = "ShirtOrder.findByIdAndCustomer", query = "SELECT so FROM ShirtOrder so WHERE so.orderId = :orderId AND so.customer.customerId = :customerId"),
 	@NamedQuery(name = "ShirtOrder.countByCustomer", query = "SELECT COUNT(*) FROM ShirtOrder so WHERE so.customer.customerId = :customerId"),

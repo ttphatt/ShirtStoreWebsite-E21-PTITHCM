@@ -1,6 +1,7 @@
 package com.shirtstore.controller.admin.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +19,22 @@ public class CreateUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getSession().getAttribute("userRole").equals("admin")) {
 			UserServices userServices = new UserServices(request, response);
-			userServices.createUser();
+
+			String email = request.getParameter("email");
+
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			PrintWriter out = response.getWriter();
+
+			if(userServices.checkDuplicateEmail(email) == null){
+				out.print("{\"valid\": " + true + "}");
+				userServices.createUser();
+			}
+			else{
+				out.print("{\"valid\": " + false + "}");
+			}
+			out.flush();
+			out.close();
 		}
 	}
 }

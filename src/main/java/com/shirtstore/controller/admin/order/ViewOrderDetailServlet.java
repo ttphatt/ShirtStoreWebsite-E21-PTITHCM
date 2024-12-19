@@ -21,7 +21,7 @@ public class ViewOrderDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OrderServices orderService = new OrderServices(request, response);
-		orderService.viewOrderDetailForAdmin();;
+		orderService.viewOrderDetailForAdmin();
 	}
 
 }

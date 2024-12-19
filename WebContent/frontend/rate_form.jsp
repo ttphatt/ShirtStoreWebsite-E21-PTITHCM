@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=yes">
     <title>Rate our shirt</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
-    
+
     <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/custom_background_template.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom_row_template.css"/>
+    <link rel="stylesheet" type="text/css" href="css/custom_border_template.css"/>
+
     <style>
         body {
             padding-top: 70px;
@@ -23,11 +28,13 @@
     </style>
 </head>
 <body>
-    <jsp:directive.include file="header.jsp"/>
-    <div class="container mt-5">
+<jsp:directive.include file="header.jsp"/>
+
+<div class="background-div-content">
+    <div class="container mt-5 mb-5">
         <div class="row justify-content-center text-center">
             <form id="rateForm" action="submit_rate" method="post" class="col-lg-8">
-                <div class="card">
+                <div class="card border custom-border">
                     <div class="card-body">
                         <h2>Share us your thoughts, ${loggedCustomer.fullName}</h2>
                         <hr>
@@ -49,16 +56,17 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end mt-4">
-                            <button id="submit" type="submit" class="btn btn-outline-success me-2">Submit</button>
-                            <button type="button" class="btn btn-outline-info" onclick="history.go(-1);">Cancel</button>
+                            <button id="submit" type="submit" class="btn custom-btn-submit me-2">Submit</button>
+                            <button type="button" class="btn custom-btn-return" onclick="history.go(-1);">Cancel</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    
-    <jsp:directive.include file="footer.jsp"/>
+</div>
+
+<jsp:directive.include file="footer.jsp"/>
 </body>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -81,7 +89,7 @@
         $("#rateYo").rateYo({
             starWidth: "40px",
             fullStar: true,
-            ratedFill: "#000000",
+            ratedFill: "#FFDF5E",
             onSet: function(rating, rateYoInstance){
                 $("#rating").val(rating)
                 ratingChosen = true
@@ -111,7 +119,16 @@
                 .then(response => response.json())
                 .then(data =>{
                     if(data.message){
-                        Swal.fire(data.message);
+                        Swal.fire({
+                            title: data.message,
+                            icon: "info",
+                            html: `
+                        <p>${data.message}</p>
+                    `,
+                            showCloseButton: true,
+                            confirmButtonText: "OK",
+                            focusConfirm: false
+                        });
                         event.preventDefault();
                     }
                     else{

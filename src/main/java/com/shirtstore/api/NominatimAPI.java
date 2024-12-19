@@ -7,10 +7,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 
 public class NominatimAPI {
     public static double[] getCoordinatesFromAddress(String address) throws Exception {
-        String urlString = "https://nominatim.openstreetmap.org/search?q=" + address.replace(" ", "+") + "&format=json";
+        String encodedAddress = URLEncoder.encode(address, "UTF-8");
+        String urlString = "https://nominatim.openstreetmap.org/search?q=" + encodedAddress.replace(" ", "+") + "&format=json";
 
         URL url = new URL(urlString);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -32,7 +34,7 @@ public class NominatimAPI {
             double lon = firstResult.getDouble("lon");
             return new double[]{lat, lon};
         } else {
-            throw new Exception("Không tìm thấy địa chỉ.");
+            throw new Exception("Cannot find the address");
         }
     }
 }

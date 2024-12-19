@@ -17,8 +17,6 @@ public class ShoppingCart {
 		carts = new ArrayList<>();
 	}
 
-
-
 	//Thêm giày vào giỏ hàng
 	public void addItem(Shirt shirt, String size) {
 		boolean found = false;
@@ -85,7 +83,6 @@ public class ShoppingCart {
 	}
 	
 	//Tìm tổng số lượng sản phẩm có trong giỏ hàng
-
 	public int getTotalItems() {
 		return carts.size();
 	}

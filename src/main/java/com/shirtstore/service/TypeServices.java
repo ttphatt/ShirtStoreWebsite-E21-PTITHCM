@@ -1,6 +1,7 @@
 package com.shirtstore.service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shirtstore.csv.CSVReaderUtility;
 import com.shirtstore.dao.ShirtDAO;
 import com.shirtstore.dao.TypeDAO;
 import com.shirtstore.entity.Type;
@@ -52,33 +54,38 @@ public class TypeServices {
 	//Tạo 1 loại áo mới
 	public void createType() throws ServletException, IOException {
 		String typeName = request.getParameter("typeName");
-		
-		//Kiểm tra có trùng loại áo có sẵn hay không
-		Type existType = typeDAO.findByName(typeName);
-		
-		//Trùng loại áo có sẵn
-		if(existType != null) {
-			String message = "Could not create new type. Type already exists with the name: " + typeName;
-			request.setAttribute("message", message);
-			
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-			
-			requestDispatcher.forward(request, response);
-		}
-		
-		//Không trùng loại áo có sẵn
-		else {
-			//Tạo 1 object type mới
-			Type type = new Type(typeName);
-			
-			//Đẩy object type mới vừa tạo xuống model để thêm vào database
-			typeDAO.create(type);
-			
-			String message = "A new type has been added successfully";
-			
-			//Refresh lại trang bằng cách liệt kê lại danh sách các loại áo
-			listType(message);
-		}
+
+		//Tạo 1 object type mới
+		Type type = new Type(typeName);
+
+		//Đẩy object type mới vừa tạo xuống model để thêm vào database
+		typeDAO.create(type);
+
+//		//Kiểm tra có trùng loại áo có sẵn hay không
+//		Type existType = typeDAO.findByName(typeName);
+//
+//		//Trùng loại áo có sẵn
+//		if(existType != null) {
+//			String message = CSVReaderUtility.loadCSVData().get("DUPLICATE_TYPE") + " " + typeName;
+//			request.setAttribute("message", message);
+//
+//			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
+//
+//			requestDispatcher.forward(request, response);
+//		}
+//
+//		//Không trùng loại áo có sẵn
+//		else {
+//			//Tạo 1 object type mới
+//			Type type = new Type(typeName);
+//
+//			//Đẩy object type mới vừa tạo xuống model để thêm vào database
+//			typeDAO.create(type);
+//
+//			String message = "A new type has been added successfully";
+//			listType(message)
+//			//Refresh lại trang bằng cách liệt kê lại danh sách các loại áo
+//		}
 	}
 	
 	//Điều hướng đến trang edit
@@ -109,16 +116,21 @@ public class TypeServices {
 		
 		//Tìm type theo tên của type
 		Type typeByName = typeDAO.findByName(typeName);
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
 		
 		//Nếu như tồn tai type theo tên nhưng id của type theo tên và id của type theo id lại khác nhau
 		//Điều này đồng nghĩa với việc đã tồn tại 1 type khác có cùng tên với tên mà ta edit cho type hiện tại
 		if(typeByName != null && typeById.getTypeId() != typeByName.getTypeId()) {
-			String message = "Could not update type. Type's name: " + typeName + " already exists";
-			request.setAttribute("message", message);
-			
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-			
-			requestDispatcher.forward(request, response);
+//			String message = "Could not update type. Type's name: " + typeName + " already exists";
+//			request.setAttribute("message", message);
+//
+//			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
+//
+//			requestDispatcher.forward(request, response);
+			out.print("{\"valid\": " + false + "}");
 		}
 		//Edit thành công khi không trùng tên type
 		else {
@@ -127,11 +139,12 @@ public class TypeServices {
 			
 			//Cập nhật objecy type vừa đổi tên xuống model để cập nhật qua database
 			typeDAO.update(typeById);
+			out.print("{\"valid\": " + true + "}");
 			
-			String message = "The type has been updated successfully";
-			
-			//Refresh lại trang bằng cách liệt kê lại danh sách các loại áo
-			listType(message);
+//			String message = "The type has been updated successfully";
+//
+//			//Refresh lại trang bằng cách liệt kê lại danh sách các loại áo
+//			listType(message);
 		}
 	}
 
@@ -144,7 +157,7 @@ public class TypeServices {
 		long numberOfShirts = shirtDAO.countByType(typeId);
 		String message;
 		
-		//Nếu như loại áo mà ta chuẩn bị xóa có tồn tại một số đôi áo -> Không cho xóa
+		//Nếu như loại áo mà ta chuẩn bị xóa có tồn tại một số áo -> Không cho xóa
 		if(numberOfShirts > 0) {
 			message = "Could not delete type with type's id: %d, there are some shirts belong to this type";
 			message = String.format(message, typeId);
@@ -158,5 +171,10 @@ public class TypeServices {
 		
 		//Refresh lại trang bằng cách liệt kê lại danh sách các loại áo
 		listType(message);
+	}
+
+	public Type checkDuplicateType(String typeName) {
+		Type type = typeDAO.findByName(typeName);
+		return type;
 	}
 }

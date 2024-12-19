@@ -73,31 +73,22 @@ public class ShirtServices {
 		
 		//Đẩy danh sách các loại áo qua view
 		request.setAttribute("listType", listType);
-		
+		request.getSession().setAttribute("shirt", null);
+
 		String path = "shirt_form.jsp";
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher(path);
 		requestDispatcher.forward(request, response);
 	}	
 
 	public void createShirt() throws ServletException, IOException {
-		String shirtName = request.getParameter("shirtName");
-		Shirt existShirt = shirtDAO.findByName(shirtName);
-		
-		//Kiểm tra trùng tên áo vì tên áo là unique key
-		if(existShirt != null) {
-			String message = "Could not create new shirt since there is already a a shirt with the name: " + shirtName;
-			listShirts(message);
-			return;
-		} 
-		
 		Shirt newShirt = new Shirt();
-		
+
 		//Lấy dữ liệu từ view và lưu 1 object shirt = newShirt
 		readFields(newShirt);
-		
+
 		//Đẩy object shirt vừa tạo xuống model để thêm vào database
 		Shirt createdShirt = shirtDAO.create(newShirt);
-		
+
 		//Đẩy ra view thông báo thành công
 		if(createdShirt.getShirtId() > 0) {
 			// Tạo thông tin về size của shirt
@@ -112,10 +103,9 @@ public class ShirtServices {
 			// Tạo thông tin của shirt trong warehouse
 			Warehouse warehouse = new Warehouse(createdShirt.getShirtId(), 0, createdShirt.getReleasedDate(), createdShirt.getReleasedDate());
 			warehouseDAO.create(warehouse);
-			String message = "A new shirt has been created successfully";
-			
+
 			//Refresh lại bằng cách liệt kê lại các đôi áo
-			listShirts(message);
+			listShirts();
 		}
 	}
 
@@ -143,17 +133,26 @@ public class ShirtServices {
 		String description = request.getParameter("description");
 		Float shirtPrice = Float.parseFloat(request.getParameter("shirtPrice"));
 
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateStr = request.getParameter("releasedDate");
 		Date releasedDate;
 
-		try {
-			releasedDate = df.parse(request.getParameter("releasedDate"));
-		}
-		catch(ParseException ex) {
-			ex.printStackTrace();
-			throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
-		}
+		if (dateStr == null || dateStr.isEmpty()) {
+			releasedDate = new Date();
+		} else {
+			try {
+				SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss");
+				String currentTime = timeFormatter.format(new Date());
 
+				dateStr += " " + currentTime;
+
+				releasedDate = df.parse(dateStr);
+			}
+			catch(ParseException ex) {
+				ex.printStackTrace();
+				throw new ServletException("Error parsing released date (format is: yyyy-MM-dd");
+			}
+		}
 
 		Type type = typeDAO.get(typeId);
 
@@ -165,13 +164,21 @@ public class ShirtServices {
 		shirt.setReleasedDate(releasedDate);
 
 		String imageUrl = imageProcessing();
-		shirt.setShirtImage(imageUrl);
+
+		if(!imageUrl.isEmpty()){
+			shirt.setShirtImage(imageUrl);
+		}
 	}
 
 	public String fileNameProcessing(Part part) {
 		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy-HH-mm-ss");
 		String formattedDate = dateTimeFormatter.format(LocalDateTime.now());
-		return formattedDate + "-" + getFileName(part);
+
+		if (!getFileName(part).isEmpty()) {
+			return formattedDate + "-" + getFileName(part);
+		}
+
+		return "";
 	}
 
 	public String imageProcessing() throws ServletException, IOException {
@@ -185,6 +192,11 @@ public class ShirtServices {
 
 		Part part = request.getPart("shirtImage");
 		String fileName = fileNameProcessing(part);
+
+		if (fileName.isEmpty()) {
+			return "";
+		}
+
 		File file = new File(uploadFilePath, fileName);
 		Files.copy(part.getInputStream(), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
 
@@ -211,24 +223,15 @@ public class ShirtServices {
 	//Cập nhật dữ liệu của shirt
 	public void updateShirt() throws ServletException, IOException {
 		Integer shirtId = Integer.parseInt(request.getParameter("shirtId"));
-		String shirtName = request.getParameter("shirtName");
-		
+
 		Shirt existShirt = shirtDAO.get(shirtId);
-		Shirt shirtByName = shirtDAO.findByName(shirtName);
-		
-		//Tồn tại 1 chiếc áo khác cùng tên
-		if(shirtByName != null && !existShirt.equals(shirtByName)) {
-			String message = "Unable to update this shirt because there is another shirt has the name: " + shirtName;
-			listShirts(message);
-			return;
-		}
-		
+
 		//Đọc dữ liệu từ view vào object existShirt
 		readFields(existShirt);
-		
+
 		//Cập nhật dữ liệu xuống database
 		shirtDAO.update(existShirt);
-		
+
 		String message = "The pair of shirt has been updated successfully";
 		listShirts(message);
 	}

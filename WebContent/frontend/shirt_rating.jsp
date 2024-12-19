@@ -1,13 +1,15 @@
 <c:forTokens items="${shirt.ratingStars}" delims="," var="star">
-	<c:if test="${star eq 'on'}">
-		<img src="images/OnStarV1.png">
-	</c:if>
-							
-	<c:if test="${star eq 'half'}">
-		<img src="images/HalfStarV1.png">
-	</c:if>
-							
-	<c:if test="${star eq 'off'}">
-		<img src="images/OffStarV1.png">
-	</c:if>
+	<div class="image-container">
+		<c:if test="${star eq 'on'}">
+			<img class="image-heart" src="images/NewWholeStar.png">
+		</c:if>
+
+		<c:if test="${star eq 'half'}">
+			<img class="image-heart" src="images/NewHalfStar.png">
+		</c:if>
+
+		<c:if test="${star eq 'off'}">
+			<img class="image-heart" src="images/NewHollowStar.png">
+		</c:if>
+	</div>
 </c:forTokens>

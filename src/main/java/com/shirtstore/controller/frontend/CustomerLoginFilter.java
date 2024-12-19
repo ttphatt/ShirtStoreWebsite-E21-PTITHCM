@@ -1,4 +1,4 @@
-package com.shoestore.controller.frontend;
+package com.shirtstore.controller.frontend;
 
 import java.io.IOException;
 import javax.servlet.Filter;

@@ -1,12 +1,11 @@
 package com.shirtstore.dao;
 
 import com.shirtstore.entity.ProductSales;
+import com.shirtstore.entity.ReportDTO;
 import com.shirtstore.entity.Size;
+import com.shirtstore.validation.DateUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -360,6 +359,189 @@ public class JPADAO<E> {
 			e.printStackTrace();
 		} finally {
 			entityManager.close();
+		}
+	}
+
+	// -------------------------------------- Query Store Procedure --------------------------------------
+
+	public List<ReportDTO> getOrderRevenue(Date start_date, Date end_date, int step, int product_id) {
+		List<ReportDTO> reportList = new ArrayList<>();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		try {
+			// Cập nhật start_date và end_date
+			start_date = DateUtils.getStartOfDay(start_date);
+			end_date = DateUtils.getEndOfDay(end_date);
+
+			entityManager.getTransaction().begin();
+
+			// Xác định stored procedure cần gọi
+			String sql;
+			if (product_id == 0) {
+				sql = "CALL GetRevenue_ByDateRange(:start_date, :end_date, :step)";
+			} else {
+				sql = "CALL GetRevenue_ByDateRange_And_ByProduct(:start_date, :end_date, :step, :product_id)";
+			}
+
+			Query query = entityManager.createNativeQuery(sql);
+
+			// Thiết lập các tham số đầu vào
+			query.setParameter("start_date", start_date);
+			query.setParameter("end_date", end_date);
+			query.setParameter("step", step);
+			if (product_id != 0) {
+				query.setParameter("product_id", product_id);
+			}
+
+			// Thực thi stored procedure và lấy kết quả
+			@SuppressWarnings("unchecked")
+			List<Object[]> results = query.getResultList();
+
+			// Duyệt qua kết quả và ánh xạ vào RevenueReportDTO
+			for (Object[] result : results) {
+				Date resultStartDate = (Date) result[0];  // start_date
+				Date resultEndDate = (Date) result[1];    // end_date
+				double total = (result[2] != null) ? ((Number) result[2]).doubleValue() : 0.0; // total
+
+				// Tạo đối tượng RevenueReportDTO và thêm vào danh sách
+				ReportDTO report = new ReportDTO(resultStartDate, resultEndDate, total);
+				reportList.add(report);
+			}
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+		return reportList;
+	}
+
+	public List<ReportDTO> getProfits(Date start_date, Date end_date, int step, int product_id) {
+		List<ReportDTO> reportList = new ArrayList<>();
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		try {
+			// Cập nhật start_date và end_date
+			start_date = DateUtils.getStartOfDay(start_date);
+			end_date = DateUtils.getEndOfDay(end_date);
+
+			entityManager.getTransaction().begin();
+
+			// Xác định stored procedure cần gọi
+			String sql = "CALL Get_Profits(:start_date, :end_date, :step, :product_id)";
+
+			Query query = entityManager.createNativeQuery(sql);
+
+			// Thiết lập các tham số đầu vào
+			query.setParameter("start_date", start_date);
+			query.setParameter("end_date", end_date);
+			query.setParameter("step", step);
+			query.setParameter("product_id", product_id);
+
+			@SuppressWarnings("unchecked")
+			List<Object[]> results = query.getResultList();
+
+			for (Object[] result : results) {
+				Date resultStartDate = (Date) result[0];  // start_date
+				Date resultEndDate = (Date) result[1];    // end_date
+				double total = (result[2] != null) ? ((Number) result[2]).doubleValue() : 0.0; // total
+
+				// Tạo đối tượng RevenueReportDTO và thêm vào danh sách
+				ReportDTO report = new ReportDTO(resultStartDate, resultEndDate, total);
+				reportList.add(report);
+			}
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		} finally {
+			entityManager.close();
+		}
+		return reportList;
+	}
+
+	public void insert_import_prices(int product_id, int quantity, float price, String size){
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+
+			String sql = "CALL Insert_Import_Prices(:product_id, :quantity, :price, :size)";
+
+			Query query = entityManager.createNativeQuery(sql);
+
+			query.setParameter("product_id", product_id);
+			query.setParameter("quantity", quantity);
+			query.setParameter("price", price);
+			query.setParameter("size", size);
+
+			query.executeUpdate();
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		}
+	}
+
+	public void update_profits(int order_id){
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+
+			String sql = "CALL Update_profits(:order_id)";
+
+			Query query = entityManager.createNativeQuery(sql);
+
+			query.setParameter("order_id", order_id);
+
+			query.executeUpdate();
+
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+		}
+	}
+
+	public int CountOrderByTime(Date start_date, Date end_date) {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		end_date = DateUtils.getEndOfDay(end_date);
+
+		try {
+			entityManager.getTransaction().begin();
+
+			String sql = "CALL CountOrderByTime(:start_date, :end_date)";
+			Query query = entityManager.createNativeQuery(sql);
+
+			query.setParameter("start_date", start_date);
+			query.setParameter("end_date", end_date);
+
+			// Assuming the stored procedure returns a single scalar value
+			Object result = query.getSingleResult();
+
+			entityManager.getTransaction().commit();
+
+			return result != null ? ((Number) result).intValue() : 0;
+		} catch (Exception e) {
+			if (entityManager.getTransaction().isActive()) {
+				entityManager.getTransaction().rollback();
+			}
+			e.printStackTrace();
+			return 0; // or handle the error as per your requirement
+		} finally {
+			entityManager.close(); // Ensure EntityManager is closed
 		}
 	}
 }

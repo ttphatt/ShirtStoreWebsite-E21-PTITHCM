@@ -1,6 +1,7 @@
 package com.shirtstore.service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shirtstore.csv.CSVReaderUtility;
 import com.shirtstore.dao.UserDAO;
 import com.shirtstore.entity.Users;
 
@@ -47,38 +49,23 @@ public class UserServices {
 	
 	//Thêm 1 user mới vào database
 	public void createUser() throws ServletException, IOException {
+		System.out.println("Create User");
 		//Lấy ra các thông tin: email, họ và tên và password từ view
 		String email = request.getParameter("email");
+		System.out.println(email);
 		String fullName = request.getParameter("fullname");
+		System.out.println(fullName);
 		String password = request.getParameter("password");
+		System.out.println(password);
 		String role = "staff";
 
-		//Kiểm tra user này có trong database chưa bằng email (Email: Unique Key)
-		Users existUser = userDAO.findByEmail(email);
-		
-		//Trường hợp đã tồn tại user
-		if(existUser != null) {
-			String message = "Could not create user. A user with email " + email + " already exists";
-			request.setAttribute("message", message);
-			
-			//Điều hướng đến view cần hiển thị
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-			
-			//Đi đến view đó
-			requestDispatcher.forward(request, response);
+		String passwordHash = new HashSha_256Service().hashWithSHA256(password);
+		Users user = new Users(email, fullName, passwordHash, role);
+		//Đẩy object user xuống Model để thêm vào trong database
+		userDAO.create(user);
+//		listUser("Create a new user successfully");
 		}
-		//Trường hợp chưa có user trong database
-		else {
-			//Tạo 1 object user mới
-			String passwordHash = new HashSha_256Service().hashWithSHA256(password);
-			Users user = new Users(email, fullName, passwordHash, role);
-			
-			//Đẩy object user xuống Model để thêm vào trong database
-			userDAO.create(user);
-			listUser("Create a new user successfully");
-		}
-	}
-	
+
 	//Điều hướng đến trang edit
 	public void editUser() throws ServletException, IOException {
 		//Lấy id của user trên view 
@@ -101,31 +88,38 @@ public class UserServices {
 		String email = request.getParameter("email");
 		String fullName = request.getParameter("fullname");
 		String password = request.getParameter("password");
-		String passwordHash = new HashSha_256Service().hashWithSHA256(password);
-			
+
+		String passwordHash ="";
+
 		Users userById = userDAO.get(userId);
+		if(password != null && password !=""){
+			passwordHash = new HashSha_256Service().hashWithSHA256(password);
+		}else{
+			passwordHash = userById.getPassword();
+		}
 		Users userByEmail = userDAO.findByEmail(email);
-		
+
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+
 		//Kiểm tra xem email có tồn tại và thuộc quyền sở hữu của user khác không
 		//Cũng là kiểm tra trường hợp user edit email mà email này đã có user khác sử dụng
 		if(userByEmail != null && userByEmail.getUserId() != userById.getUserId()) {
-			String message = "Could not update the user. User with email " + email + " already exists";
-			request.setAttribute("message", message);
-			
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
-			requestDispatcher.forward(request, response);
+//			String message = "Could not update the user. User with email " + email + " already exists";
+//			request.setAttribute("message", message);
+//
+//			RequestDispatcher requestDispatcher = request.getRequestDispatcher("message.jsp");
+//			requestDispatcher.forward(request, response);
+			out.print("{\"valid\": " + false + "}");
 		}
 		else {
 			//Tạo 1 object user mới để lưu dữ liệu vừa edit
-			Users user = new Users(userId, email, fullName, passwordHash, userByEmail.getRole());
-			
+			Users user = new Users(userId, email, fullName, passwordHash, userById.getRole());
+
 			//Đẩy object xuống Model để thêm vào database
 			userDAO.update(user);
-			
-			String message = "User has been updated successfully";
-			
-			//Refresh lại danh sách user bằng cách liệt kê lại danh sách các user
-			listUser(message);
+			out.print("{\"valid\": " + true + "}");
 		}
 	}
 
@@ -174,4 +168,9 @@ public class UserServices {
 			
 		}
 	}
+
+    public Users checkDuplicateEmail(String email) {
+		Users users = userDAO.findByEmail(email);
+		return users;
+    }
 }

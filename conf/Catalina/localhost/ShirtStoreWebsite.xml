@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Context docBase="C:\Users\phat\Downloads\ShirtStoreWebsite_16_1\ShirtStoreWebsite_16_1\WebContent">
+<Context docBase="C:\Users\phat\Downloads\ShirtStoreWebsite_4_12\ShirtStoreWebsite_4_12\WebContent">
   <Resources cacheMaxSize="10240">
-    <PreResources base="C:/Users/phat/Downloads/ShirtStoreWebsite_16_1/ShirtStoreWebsite_16_1/target/classes" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
+    <PreResources base="C:/Users/phat/Downloads/ShirtStoreWebsite_4_12/ShirtStoreWebsite_4_12/target/classes" className="org.apache.catalina.webresources.DirResourceSet" webAppMount="/WEB-INF/classes"/>
     <PostResources base="C:/Users/phat/.m2/repository/org/hibernate/hibernate-core/5.6.15.Final/hibernate-core-5.6.15.Final.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/hibernate-core-5.6.15.Final.jar"/>
     <PostResources base="C:/Users/phat/.m2/repository/org/jboss/logging/jboss-logging/3.4.3.Final/jboss-logging-3.4.3.Final.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jboss-logging-3.4.3.Final.jar"/>
     <PostResources base="C:/Users/phat/.m2/repository/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/javax.persistence-api-2.2.jar"/>
@@ -42,5 +42,21 @@
     <PostResources base="C:/Users/phat/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-collections-3.2.2.jar"/>
     <PostResources base="C:/Users/phat/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-collections4-4.4.jar"/>
     <PostResources base="C:/Users/phat/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-lang3-3.8.1.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/net/sf/jasperreports/jasperreports/6.20.0/jasperreports-6.20.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jasperreports-6.20.0.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/commons-digester-2.1.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/com/lowagie/itext/2.1.7.js10/itext-2.1.7.js10.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/itext-2.1.7.js10.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/bcprov-jdk15on-1.70.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/bouncycastle/bcutil-jdk15on/1.70/bcutil-jdk15on-1.70.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/bcutil-jdk15on-1.70.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/jfree/jcommon/1.0.23/jcommon-1.0.23.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jcommon-1.0.23.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/jfree/jfreechart/1.0.19/jfreechart-1.0.19.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jfreechart-1.0.19.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/eclipse/jdt/ecj/3.21.0/ecj-3.21.0.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/ecj-3.21.0.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-core-2.13.3.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.3/jackson-databind-2.13.3.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-databind-2.13.3.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-annotations-2.13.3.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.13.3/jackson-dataformat-xml-2.13.3.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/jackson-dataformat-xml-2.13.3.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/stax2-api-4.2.1.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.2.7/woodstox-core-6.2.7.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/woodstox-core-6.2.7.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/springframework/spring-core/5.3.24/spring-core-5.3.24.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/spring-core-5.3.24.jar"/>
+    <PostResources base="C:/Users/phat/.m2/repository/org/springframework/spring-jcl/5.3.24/spring-jcl-5.3.24.jar" className="org.apache.catalina.webresources.FileResourceSet" webAppMount="/WEB-INF/lib/spring-jcl-5.3.24.jar"/>
   </Resources>
 </Context>
